@@ -17,6 +17,7 @@
     <description>A simple blog modules.</description>
 
     <modules>
+        <module>app</module>
     </modules>
 
 </project>
