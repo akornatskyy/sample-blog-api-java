@@ -19,6 +19,7 @@
     <modules>
         <module>app</module>
         <module>membership</module>
+        <module>posts</module>
     </modules>
 
 </project>
