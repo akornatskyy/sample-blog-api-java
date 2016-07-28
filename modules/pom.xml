@@ -17,9 +17,10 @@
     <description>A simple blog modules.</description>
 
     <modules>
-        <module>app</module>
+        <module>shared</module>
         <module>membership</module>
         <module>posts</module>
+        <module>app</module>
     </modules>
 
 </project>
