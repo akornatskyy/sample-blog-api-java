@@ -12,8 +12,32 @@
     <artifactId>sample-blog-app</artifactId>
     <name>sample-blog-app</name>
     <description>A simple blog app module.</description>
+    <prerequisites>
+        <maven>3.2.1</maven>
+    </prerequisites>
+
+    <properties>
+        <spring.boot.dependencies.version>1.4.0.RELEASE</spring.boot.dependencies.version>
+        <spring.boot.maven.plugin.version>${spring.boot.dependencies.version}</spring.boot.maven.plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <type>pom</type>
+                <version>${spring.boot.dependencies.version}</version>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.github</groupId>
             <artifactId>sample-blog-membership</artifactId>
@@ -25,4 +49,22 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
