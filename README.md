@@ -11,6 +11,12 @@ quality criteria.
 
     mvn verify
 
+## Run
+
+Run application as an executable jar.
+
+    java -jar modules/app/target/sample-blog-app-1.0-SNAPSHOT.jar
+
 ## Tools
 
 Byte code analysis to determine missing or unused 
