@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 @Controller
 @Scope("prototype")
@@ -25,7 +26,7 @@ public final class SignInController {
     }
 
     @RequestMapping(value = "/api/v1/signin", method = RequestMethod.POST)
-    public ResponseEntity<SignInResponse> post(@RequestBody SignInRequest req) {
+    public ResponseEntity<SignInResponse> post(@RequestBody @Valid SignInRequest req) {
         SignInResponse resp = this.signInFacade.authenticate(req);
         if (resp == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
