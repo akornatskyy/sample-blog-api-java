@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class Config {
 
-    @Bean
-    @Scope("prototype")
-    public SignInFacade signInFacade() {
-        return new SignInFacade();
-    }
+  @Bean
+  @Scope("prototype")
+  public SignInFacade signInFacade() {
+    return new SignInFacade();
+  }
 }
