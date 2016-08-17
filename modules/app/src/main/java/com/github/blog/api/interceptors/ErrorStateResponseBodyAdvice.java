@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJacksonResponseBodyAdvice;
 
 @ControllerAdvice
-public final class ErrorStateResponseBodyAdvise
+public final class ErrorStateResponseBodyAdvice
     extends AbstractMappingJacksonResponseBodyAdvice
     implements ApplicationContextAware {
 
