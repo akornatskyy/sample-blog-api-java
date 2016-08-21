@@ -18,6 +18,10 @@
     <properties>
         <java.version>1.8</java.version>
         <junit.version>4.12</junit.version>
+        <validation.api.version>1.1.0.Final</validation.api.version>
+        <javax.inject>1</javax.inject>
+        <spring.boot.dependencies.version>1.4.0.RELEASE</spring.boot.dependencies.version>
+        <spring.boot.maven.plugin>${spring.boot.dependencies.version}</spring.boot.maven.plugin>
         <maven.assembly.plugin>2.6</maven.assembly.plugin>
         <maven.clean.plugin>3.0.0</maven.clean.plugin>
         <maven.compiler.plugin>3.5.1</maven.compiler.plugin>
@@ -46,6 +50,23 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>${javax.inject}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <type>pom</type>
+                <version>${spring.boot.dependencies.version}</version>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
