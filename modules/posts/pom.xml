@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.github</groupId>
-        <artifactId>sample-blog-modules</artifactId>
+        <artifactId>sample-blog-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../parent</relativePath>
     </parent>
 
     <artifactId>sample-blog-posts</artifactId>
