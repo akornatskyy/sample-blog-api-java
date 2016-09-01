@@ -2,33 +2,33 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github</groupId>
-    <artifactId>sample-blog-api</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <prerequisites>
-        <maven>3.0</maven>
-    </prerequisites>
+  <groupId>com.github</groupId>
+  <artifactId>sample-blog-api</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
 
-    <name>sample-blog-api</name>
-    <description>A simple blog API.</description>
+  <name>sample-blog-api</name>
+  <description>A simple blog API.</description>
 
-    <developers>
-        <developer>
-            <id>akornatskyy</id>
-            <name>Andriy Kornatskyy</name>
-            <email>andriy.kornatskyy@live.com</email>
-            <roles>
-                <role>Author</role>
-            </roles>
-        </developer>
-    </developers>
+  <developers>
+    <developer>
+      <id>akornatskyy</id>
+      <name>Andriy Kornatskyy</name>
+      <email>andriy.kornatskyy@live.com</email>
+      <roles>
+        <role>Author</role>
+      </roles>
+    </developer>
+  </developers>
 
-    <modules>
-        <module>parent</module>
-        <module>modules</module>
-    </modules>
+  <modules>
+    <module>parent</module>
+    <module>modules</module>
+  </modules>
 
 </project>
