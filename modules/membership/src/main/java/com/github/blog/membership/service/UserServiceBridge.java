@@ -1,5 +1,7 @@
 package com.github.blog.membership.service;
 
+import com.github.blog.membership.models.AuthInfo;
+import com.github.blog.membership.repository.UserRepository;
 import com.github.blog.shared.service.ErrorState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,15 +35,24 @@ public final class UserServiceBridge implements UserService {
   }
 
   private final ErrorState errorState;
+  private final UserRepository userRepository;
 
-  public UserServiceBridge(ErrorState errorState) {
+  public UserServiceBridge(ErrorState errorState,
+                           UserRepository userRepository) {
     this.errorState = errorState;
+    this.userRepository = userRepository;
   }
 
   @Override
   public boolean authenticate(String username, String password) {
-    if (!"demo".equalsIgnoreCase(username)) {
+    AuthInfo authInfo = userRepository.findAuthInfo(username.toLowerCase());
+    if (authInfo == null || !authInfo.getPassword().equals(password)) {
       this.errorState.addError(messages.getProperty("signInFailed"));
+      return false;
+    }
+
+    if (authInfo.isLocked()) {
+      this.errorState.addError(messages.getProperty("userLocked"));
       return false;
     }
 
