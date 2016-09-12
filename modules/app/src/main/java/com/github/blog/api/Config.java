@@ -1,5 +1,7 @@
 package com.github.blog.api;
 
+import com.github.blog.membership.repository.UserRepository;
+import com.github.blog.membership.repository.mock.UserRepositoryImpl;
 import com.github.blog.membership.service.UserService;
 import com.github.blog.membership.service.UserServiceBridge;
 import com.github.blog.membership.web.SignInFacade;
@@ -19,8 +21,15 @@ public class Config {
 
   @Bean
   @Scope("prototype")
-  public UserService userService(ErrorState errorState) {
-    return new UserServiceBridge(errorState);
+  public UserRepository userRepository() {
+    return new UserRepositoryImpl();
+  }
+
+  @Bean
+  @Scope("prototype")
+  public UserService userService(ErrorState errorState,
+                                 UserRepository userRepository) {
+    return new UserServiceBridge(errorState, userRepository);
   }
 
   @Bean
