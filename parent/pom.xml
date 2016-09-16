@@ -134,12 +134,12 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven.surefire.plugin}</version>
           <configuration>
-            <parallel>methods</parallel>
+            <parallel>classes</parallel>
             <threadCount>4</threadCount>
             <useFile>false</useFile>
             <printSummary>false</printSummary>
             <includes>
-              <include>**/*Tests.java</include>
+              <include>**/*Test.java</include>
             </includes>
             <excludes>
               <exclude>**/Abstract*.java</exclude>
