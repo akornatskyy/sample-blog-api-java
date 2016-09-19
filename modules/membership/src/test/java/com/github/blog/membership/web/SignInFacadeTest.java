@@ -42,4 +42,15 @@ public class SignInFacadeTest {
     Mockito.verify(mockUserService).authenticate(
         request.getUsername(), request.getPassword());
   }
+
+  @Test
+  public void testAuthenticate() {
+    Mockito.when(mockUserService.authenticate(
+        request.getUsername(), request.getPassword())).thenReturn(true);
+
+    SignInResponse response = signInFacade.authenticate(request);
+
+    Assert.assertNotNull(response);
+    Assert.assertEquals(response.getUsername(), request.getUsername());
+  }
 }
