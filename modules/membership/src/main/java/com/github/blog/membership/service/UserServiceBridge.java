@@ -2,24 +2,15 @@ package com.github.blog.membership.service;
 
 import com.github.blog.membership.models.AuthInfo;
 import com.github.blog.membership.repository.UserRepository;
+import com.github.blog.shared.PropertiesLoader;
 import com.github.blog.shared.service.ErrorState;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 public final class UserServiceBridge implements UserService {
 
-  private static final Properties messages = new Properties();
-
-  static {
-    try (InputStream is = Object.class.getResourceAsStream(
-        "/membership-messages.properties")) {
-      messages.load(is);
-    } catch (IOException ex) {
-      throw new IllegalStateException("Failed to load messages.");
-    }
-  }
+  private static final Properties messages = PropertiesLoader.fromResource(
+      "membership-messages");
 
   private final ErrorState errorState;
   private final UserRepository userRepository;
