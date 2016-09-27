@@ -17,6 +17,22 @@ Run application as an executable jar.
 
     java -jar modules/app/target/sample-blog-app-1.0-SNAPSHOT.jar
 
+# curl
+
+Validation error:
+
+    $ curl -si -H 'Content-Type: application/json' \
+        -X POST -d '{}' \
+        http://localhost:8080/api/v1/signin
+        
+    HTTP/1.1 400
+    Content-Type: application/json;charset=UTF-8
+    Transfer-Encoding: chunked
+    Connection: close
+    
+    {"password":["Required field cannot be left blank."],
+    "username":["Required field cannot be left blank."]}
+
 ## Tools
 
 Byte code analysis to determine missing or unused 
