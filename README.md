@@ -46,6 +46,18 @@ General error:
     
     {"__ERROR__":["The account is locked. Contact system administrator, please."]}
 
+Valid:
+
+    $ curl -si -H 'Content-Type: application/json' \
+    -X POST -d '{"username":"demo", "password":"password"}' \
+    http://localhost:8080/api/v1/signin
+    
+    HTTP/1.1 200
+    Content-Type: application/json;charset=UTF-8
+    Transfer-Encoding: chunked
+    
+    {"username":"demo"}
+
 ## Tools
 
 Byte code analysis to determine missing or unused 
