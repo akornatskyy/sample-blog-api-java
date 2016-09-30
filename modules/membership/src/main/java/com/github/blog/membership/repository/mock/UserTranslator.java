@@ -3,8 +3,8 @@ package com.github.blog.membership.repository.mock;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.blog.membership.models.AuthInfo;
 
-final class UserTransator {
-  private UserTransator() {
+final class UserTranslator {
+  private UserTranslator() {
   }
 
   public static AuthInfo authInfo(JsonNode node) {

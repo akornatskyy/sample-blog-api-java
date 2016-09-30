@@ -27,7 +27,7 @@ public class UserRepositoryImpl implements UserRepository {
     return StreamSupport.stream(USERS.spliterator(), false)
         .filter(j -> j.get("username").asText().equals(username))
         .findFirst()
-        .map(UserTransator::authInfo)
+        .map(UserTranslator::authInfo)
         .orElse(null);
   }
 }
