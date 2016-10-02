@@ -1,5 +1,6 @@
 package com.github.blog.membership.service;
 
+import com.github.blog.membership.models.AuthInfo;
 import com.github.blog.membership.repository.UserRepository;
 import com.github.blog.shared.service.ErrorState;
 import org.mockito.Mock;
@@ -32,6 +33,19 @@ public class UserServiceBridgeTest {
         .thenReturn(null);
 
     boolean succeed = userService.authenticate("user", "");
+
+    Assert.assertFalse(succeed);
+    Assert.assertTrue(errorState.hasErrors());
+  }
+
+  @Test
+  public void testAuthenticateWrongPassword() {
+    AuthInfo authInfo = new AuthInfo();
+    authInfo.setPassword("password");
+    Mockito.when(mockUserRepository.findAuthInfo("user"))
+        .thenReturn(authInfo);
+
+    boolean succeed = userService.authenticate("user", "invalid");
 
     Assert.assertFalse(succeed);
     Assert.assertTrue(errorState.hasErrors());
