@@ -23,7 +23,7 @@
     <slf4j.api.version>1.7.21</slf4j.api.version>
     <validation.api.version>1.1.0.Final</validation.api.version>
     <spring.boot.dependencies.version>
-      1.4.0.RELEASE
+      1.4.1.RELEASE
     </spring.boot.dependencies.version>
     <spring.boot.maven.plugin>
       ${spring.boot.dependencies.version}
