@@ -64,4 +64,18 @@ public class UserServiceBridgeTest {
     Assert.assertFalse(succeed);
     Assert.assertTrue(errorState.hasErrors());
   }
+
+  @Test
+  public void testAuthenticate() {
+    AuthInfo authInfo = new AuthInfo();
+    authInfo.setPassword("password");
+    authInfo.setLocked(false);
+    Mockito.when(mockUserRepository.findAuthInfo("user"))
+        .thenReturn(authInfo);
+
+    boolean succeed = userService.authenticate("user", "password");
+
+    Assert.assertTrue(succeed);
+    Assert.assertFalse(errorState.hasErrors());
+  }
 }
