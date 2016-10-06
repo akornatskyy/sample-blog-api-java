@@ -10,7 +10,7 @@ import java.util.Properties;
 public final class UserServiceBridge implements UserService {
 
   private static final Properties messages = PropertiesLoader.fromResource(
-      "membership-messages");
+      "membership-messages.properties");
 
   private final ErrorState errorState;
   private final UserRepository userRepository;

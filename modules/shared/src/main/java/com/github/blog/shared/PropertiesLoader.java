@@ -15,11 +15,11 @@ public final class PropertiesLoader {
   public static Properties fromResource(String name) {
     Properties properties = new Properties();
     try (InputStream in = PropertiesLoader.class.getClassLoader()
-        .getResourceAsStream(name + ".properties")) {
+        .getResourceAsStream(name)) {
       properties.load(in);
     } catch (IOException ex) {
       throw new IllegalStateException(
-          String.format("Unable to load %s.properties file.", name));
+          String.format("Unable to load %s file.", name));
     }
 
     return properties;
