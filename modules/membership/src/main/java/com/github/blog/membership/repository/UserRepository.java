@@ -4,4 +4,6 @@ import com.github.blog.membership.models.AuthInfo;
 
 public interface UserRepository {
   AuthInfo findAuthInfo(String username);
+
+  boolean hasAccount(String username);
 }
