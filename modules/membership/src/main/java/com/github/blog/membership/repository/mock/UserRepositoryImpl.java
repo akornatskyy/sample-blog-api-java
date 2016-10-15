@@ -1,7 +1,7 @@
 package com.github.blog.membership.repository.mock;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.github.blog.membership.models.AuthInfo;
 import com.github.blog.membership.repository.UserRepository;
 
@@ -11,12 +11,12 @@ import java.util.stream.StreamSupport;
 
 public class UserRepositoryImpl implements UserRepository {
 
-  private static final JsonNode USERS;
+  private static final ArrayNode USERS;
 
   static {
     try (InputStream is = Object.class.getResourceAsStream(
         "/user-samples.json")) {
-      USERS = new ObjectMapper().readTree(is).get("users");
+      USERS = (ArrayNode) new ObjectMapper().readTree(is).get("users");
     } catch (IOException ex) {
       throw new IllegalStateException("Cannot read user samples.");
     }
@@ -29,5 +29,11 @@ public class UserRepositoryImpl implements UserRepository {
         .findFirst()
         .map(UserTranslator::authInfo)
         .orElse(null);
+  }
+
+  @Override
+  public boolean hasAccount(String username) {
+    return StreamSupport.stream(USERS.spliterator(), false)
+        .anyMatch(j -> j.get("username").asText().equals(username));
   }
 }
