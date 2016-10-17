@@ -2,7 +2,9 @@ package com.github.blog.membership.repository.mock;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.blog.membership.models.AuthInfo;
+import com.github.blog.membership.models.Registration;
 import com.github.blog.membership.repository.UserRepository;
 
 import java.io.IOException;
@@ -35,5 +37,14 @@ public class UserRepositoryImpl implements UserRepository {
   public boolean hasAccount(String username) {
     return StreamSupport.stream(USERS.spliterator(), false)
         .anyMatch(j -> j.get("username").asText().equals(username));
+  }
+
+  @Override
+  public boolean createAccount(Registration registration) {
+    ObjectNode user = USERS.addObject();
+    user.put("username", registration.getUsername());
+    user.put("email", registration.getEmail());
+    user.put("password", registration.getPassword());
+    return true;
   }
 }
