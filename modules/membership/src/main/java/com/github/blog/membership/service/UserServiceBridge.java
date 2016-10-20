@@ -1,6 +1,7 @@
 package com.github.blog.membership.service;
 
 import com.github.blog.membership.models.AuthInfo;
+import com.github.blog.membership.models.Registration;
 import com.github.blog.membership.repository.UserRepository;
 import com.github.blog.shared.PropertiesLoader;
 import com.github.blog.shared.service.ErrorState;
@@ -31,6 +32,23 @@ public final class UserServiceBridge implements UserService {
 
     if (authInfo.isLocked()) {
       this.errorState.addError(messages.getProperty("userLocked"));
+      return false;
+    }
+
+    return true;
+  }
+
+  @Override
+  public boolean createAccount(Registration registration) {
+    if (userRepository.hasAccount(registration.getUsername())) {
+      this.errorState.addError(
+          messages.getProperty("alreadyRegistered"),
+          "username");
+      return false;
+    }
+
+    if (!userRepository.createAccount(registration)) {
+      this.errorState.addError(messages.getProperty("unableCreateAccount"));
       return false;
     }
 
