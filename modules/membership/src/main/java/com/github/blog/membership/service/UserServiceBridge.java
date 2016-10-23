@@ -42,8 +42,8 @@ public final class UserServiceBridge implements UserService {
   public boolean createAccount(Registration registration) {
     if (userRepository.hasAccount(registration.getUsername())) {
       this.errorState.addError(
-          messages.getProperty("alreadyRegistered"),
-          "username");
+          "username",
+          messages.getProperty("alreadyRegistered"));
       return false;
     }
 
