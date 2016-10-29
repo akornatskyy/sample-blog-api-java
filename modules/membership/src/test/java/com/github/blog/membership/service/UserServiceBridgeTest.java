@@ -1,6 +1,7 @@
 package com.github.blog.membership.service;
 
 import com.github.blog.membership.models.AuthInfo;
+import com.github.blog.membership.models.Registration;
 import com.github.blog.membership.repository.UserRepository;
 import com.github.blog.shared.service.ErrorState;
 import org.mockito.Mock;
@@ -77,5 +78,19 @@ public class UserServiceBridgeTest {
 
     Assert.assertTrue(succeed);
     Assert.assertFalse(errorState.hasErrors());
+  }
+
+  @Test
+  public void testCreateAccountAlreadyRegistered() {
+    Registration registration = new Registration();
+    registration.setUsername("demo");
+    Mockito.when(mockUserRepository.hasAccount(registration.getUsername()))
+        .thenReturn(true);
+
+    boolean succeed = userService.createAccount(registration);
+
+    Assert.assertFalse(succeed);
+    Assert.assertTrue(errorState.hasErrors());
+    Assert.assertTrue(errorState.getErrors().containsKey("username"));
   }
 }
