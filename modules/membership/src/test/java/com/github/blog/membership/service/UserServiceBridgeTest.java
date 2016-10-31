@@ -108,4 +108,19 @@ public class UserServiceBridgeTest {
     Assert.assertFalse(succeed);
     Assert.assertTrue(errorState.hasErrors());
   }
+
+  @Test
+  public void testCreateAccount() {
+    Registration registration = new Registration();
+    registration.setUsername("demo");
+    Mockito.when(mockUserRepository.hasAccount(registration.getUsername()))
+        .thenReturn(false);
+    Mockito.when(mockUserRepository.createAccount(registration))
+        .thenReturn(true);
+
+    boolean succeed = userService.createAccount(registration);
+
+    Assert.assertTrue(succeed);
+    Assert.assertFalse(errorState.hasErrors());
+  }
 }
