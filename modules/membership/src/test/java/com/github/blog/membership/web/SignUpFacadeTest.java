@@ -41,4 +41,14 @@ public class SignUpFacadeTest {
 
     Assert.assertNull(response);
   }
+
+  @Test
+  public void testCreateAccount() {
+    Mockito.when(mockUserService.createAccount(Mockito.any()))
+        .thenReturn(true);
+
+    SignUpResponse response = signUpFacade.createAccount(request);
+
+    Assert.assertEquals(response, SignUpResponse.OK);
+  }
 }
