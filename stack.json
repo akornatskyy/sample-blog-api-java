@@ -4,7 +4,8 @@
 		"LambdaLogGroup": {
 			"Type": "AWS::Logs::LogGroup",
 			"Properties": {
-				"LogGroupName": "/aws/lambda/Test"
+				"LogGroupName": "/aws/lambda/Test",
+				"RetentionInDays": 3
 			}
 		}
 	}
