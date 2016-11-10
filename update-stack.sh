@@ -4,8 +4,18 @@ STACK_NAME=test
 
 cf='aws cloudformation'
 
-$cf create-stack --stack-name $STACK_NAME \
+cmd='create'
+
+echo looking for stack
+$cf describe-stacks --stack-name $STACK_NAME &>/dev/null
+
+if [ "$?" == "0" ]; then
+	cmd='update'
+fi
+
+echo $cmd stack initiated
+$cf $cmd-stack --stack-name $STACK_NAME \
 	--template-body file://stack.json > /dev/null
 if [ "$?" == "0" ]; then
-	$cf wait stack-create-complete --stack-name $STACK_NAME
+	$cf wait stack-$cmd-complete --stack-name $STACK_NAME
 fi
