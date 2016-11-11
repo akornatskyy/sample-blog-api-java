@@ -14,7 +14,7 @@ if [ "$?" == "0" ]; then
 fi
 
 echo $cmd stack initiated
-$cf $cmd-stack --stack-name $STACK_NAME \
+$cf $cmd-stack --stack-name $STACK_NAME --capabilities CAPABILITY_NAMED_IAM \
 	--template-body file://stack.json > /dev/null
 if [ "$?" == "0" ]; then
 	$cf wait stack-$cmd-complete --stack-name $STACK_NAME
