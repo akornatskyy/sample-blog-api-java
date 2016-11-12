@@ -4,8 +4,32 @@
 		"LambdaLogGroup": {
 			"Type": "AWS::Logs::LogGroup",
 			"Properties": {
-				"LogGroupName": "/aws/lambda/Test",
+				"LogGroupName": "/aws/lambda/Lambda",
 				"RetentionInDays": 3
+			}
+		},
+		"LambdaRole": {
+			"Type": "AWS::IAM::Role",
+			"Properties": {
+				"RoleName": "TestLambdaRole",
+				"AssumeRolePolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Principal": {
+								"Service": "lambda.amazonaws.com"
+							},
+							"Action": [
+								"sts:AssumeRole"
+							]
+						}
+					]
+				},
+				"Path": "/",
+				"ManagedPolicyArns": [
+					"arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+				]
 			}
 		}
 	}
