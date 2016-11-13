@@ -31,6 +31,32 @@
 					"arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 				]
 			}
+		},
+		"Lambda": {
+			"Type": "AWS::Lambda::Function",
+			"Properties": {
+				"FunctionName": "Test",
+				"Handler": "index.handler",
+				"Role": {
+					"Fn::GetAtt": [
+						"LambdaRole",
+						"Arn"
+					]
+				},
+				"Code": {
+					"ZipFile": {
+						"Fn::Join": [
+							"\n",
+							[
+								"exports.handler = function(event, context) {",
+								"  console.log('hello world');",
+								"}"
+							]
+						]
+					}
+				},
+				"Runtime": "nodejs4.3"
+			}
 		}
 	}
 }
