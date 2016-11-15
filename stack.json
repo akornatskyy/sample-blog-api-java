@@ -55,7 +55,9 @@
             ]
           }
         },
-        "Runtime": "nodejs4.3"
+        "Runtime": "nodejs4.3",
+        "MemorySize": 128,
+        "Timeout": 5
       }
     }
   }
