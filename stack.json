@@ -4,7 +4,17 @@
     "LambdaLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/Lambda",
+        "LogGroupName": {
+          "Fn::Join": [
+            "/",
+            [
+              "/aws/lambda",
+              {
+                "Ref": "Lambda"
+              }
+            ]
+          ]
+        },
         "RetentionInDays": 3
       }
     },
