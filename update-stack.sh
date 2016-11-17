@@ -1,6 +1,11 @@
 #!/bin/bash
 
-STACK_NAME=test
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <stack-name>"
+    exit 1
+fi
+
+STACK_NAME=$1
 
 cf='aws cloudformation'
 
