@@ -16,6 +16,16 @@ quality criteria.
 Run application as an executable jar.
 
     java -jar modules/app/target/sample-blog-app-1.0-SNAPSHOT.jar
+    
+## AWS
+
+Deploy to `test` Cloud Formation stack:
+
+    update-stack.sh test
+
+Delete stack:
+
+    aws cloudformation stack-delete-complete --stack-name test
 
 # curl
 
