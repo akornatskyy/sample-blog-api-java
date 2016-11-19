@@ -25,7 +25,7 @@ Deploy to `test` Cloud Formation stack:
 
 Delete stack:
 
-    aws cloudformation stack-delete-complete --stack-name test
+    aws cloudformation delete-stack --stack-name test
 
 # curl
 
