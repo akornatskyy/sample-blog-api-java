@@ -15,7 +15,18 @@ echo looking for stack
 $cf describe-stacks --stack-name $STACK_NAME &>/dev/null
 
 if [ "$?" == "0" ]; then
-  cmd='update'
+  echo stack exists... checking status
+  s=$($cf describe-stacks --stack-name $STACK_NAME --output text \
+    --query 'Stacks[0].StackStatus')
+  echo stack status $s
+
+  if [ "$s" == "ROLLBACK_COMPLETE" ]; then
+    echo deleting stack
+    $cf delete-stack --stack-name $STACK_NAME
+    $cf wait stack-delete-complete --stack-name $STACK_NAME
+  else
+    cmd='update'
+  fi
 fi
 
 echo $cmd stack initiated
