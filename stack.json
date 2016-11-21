@@ -21,7 +21,17 @@
     "LambdaRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
-        "RoleName": "TestLambdaRole",
+        "RoleName": {
+          "Fn::Join": [
+            "-",
+            [
+              {
+                "Ref": "AWS::StackName"
+              },
+              "lambda-role"
+            ]
+          ]
+        },
         "AssumeRolePolicyDocument": {
           "Version": "2012-10-17",
           "Statement": [
@@ -45,7 +55,17 @@
     "Lambda": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
-        "FunctionName": "Test",
+        "FunctionName": {
+          "Fn::Join": [
+            "-",
+            [
+              {
+                "Ref": "AWS::StackName"
+              },
+              "request-handler"
+            ]
+          ]
+        },
         "Handler": "index.handler",
         "Role": {
           "Fn::GetAtt": [
