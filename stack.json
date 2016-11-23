@@ -78,8 +78,13 @@
             "Fn::Join": [
               "\n",
               [
-                "exports.handler = function(event, context) {",
-                "  console.log('hello world');",
+                "exports.handler = function(event, context, callback) {",
+                "  console.log('event: ' + JSON.stringify(event, null, 2));",
+                "  console.log('context: ' + JSON.stringify(context, null, 2));",
+                "  callback(null, {",
+                "    'headers': {'MyHeader': 1234567890},",
+                "    'body': {'message': 'Hello World!', 'event': event}",
+                "  })",
                 "}"
               ]
             ]
@@ -129,6 +134,84 @@
             ]
           ]
         }
+      }
+    },
+    "MembershipSignIn": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "RestApi"
+        },
+        "ParentId": {
+          "Fn::GetAtt": [
+            "RestApi",
+            "RootResourceId"
+          ]
+        },
+        "PathPart": "signin"
+      }
+    },
+    "MembershipSignInPost": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "RestApiId": {
+          "Ref": "RestApi"
+        },
+        "ResourceId": {
+          "Ref": "MembershipSignIn"
+        },
+        "HttpMethod": "POST",
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "Type": "AWS",
+          "IntegrationHttpMethod": "POST",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:aws:apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
+                    "Lambda",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          },
+          "IntegrationResponses": [
+            {
+              "ResponseTemplates": {
+                "application/json": "$input.json('$.body')"
+              },
+              "ResponseParameters": {
+                "method.response.header.MyHeader": "integration.response.body.headers.MyHeader"
+              },
+              "StatusCode": 200
+            }
+          ],
+          "PassthroughBehavior": "NEVER",
+          "RequestTemplates": {
+            "application/json": "{\"route\":\"signin\",\"body\":$input.json('$'),\"env\":\"${stageVariables.env}\"}"
+          }
+        },
+        "RequestParameters": {
+        },
+        "MethodResponses": [
+          {
+            "ResponseModels": {
+            },
+            "ResponseParameters": {
+              "method.response.header.MyHeader": true
+            },
+            "StatusCode": 200
+          }
+        ]
       }
     }
   }
