@@ -242,5 +242,12 @@
         ]
       }
     }
+  },
+  "Outputs": {
+    "ApiId": {
+      "Value": {
+        "Ref": "RestApi"
+      }
+    }
   }
 }
