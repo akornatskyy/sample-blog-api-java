@@ -35,3 +35,9 @@ $cf $cmd-stack --stack-name $STACK_NAME --capabilities CAPABILITY_NAMED_IAM \
 if [ "$?" == "0" ]; then
   $cf wait stack-$cmd-complete --stack-name $STACK_NAME
 fi
+
+API=$($cf describe-stacks --stack-name $STACK_NAME --output text \
+  --query 'Stacks[0].Outputs[?OutputKey==`ApiId`].[OutputValue]')
+API_URL="https://${API}.execute-api.$(aws configure get region).amazonaws.com/v1"
+
+echo ${API_URL}
