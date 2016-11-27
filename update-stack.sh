@@ -20,7 +20,8 @@ if [ "$?" == "0" ]; then
     --query 'Stacks[0].StackStatus')
   echo stack status $s
 
-  if [ "$s" == "ROLLBACK_COMPLETE" ]; then
+  if [ "$s" == "ROLLBACK_COMPLETE" ] || [ "$s" == "ROLLBACK_FAILED" ] || \
+     [ "$s" == "DELETE_FAILED" ] || [ "$s" == "UPDATE_ROLLBACK_FAILED" ] ; then
     echo deleting stack
     $cf delete-stack --stack-name $STACK_NAME
     $cf wait stack-delete-complete --stack-name $STACK_NAME
