@@ -78,12 +78,13 @@
             "Fn::Join": [
               "\n",
               [
-                "exports.handler = function(event, context, callback) {",
+                "exports.handler = function(event, context) {",
                 "  console.log('event: ' + JSON.stringify(event, null, 2));",
                 "  console.log('context: ' + JSON.stringify(context, null, 2));",
-                "  callback(null, {",
-                "    'headers': {'MyHeader': 1234567890},",
-                "    'body': {'message': 'Hello World!', 'event': event}",
+                "  context.succeed({",
+                "    statusCode: 200,",
+                "    headers: {'Content-Type': 'application/json'},",
+                "    body: JSON.stringify({message: 'Hello World!', event: event})",
                 "  })",
                 "}"
               ]
@@ -136,7 +137,7 @@
         }
       }
     },
-    "MembershipSignIn": {
+    "ProxyResource": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "RestApiId": {
@@ -148,23 +149,24 @@
             "RootResourceId"
           ]
         },
-        "PathPart": "signin"
+        "PathPart": "{proxy+}"
       }
     },
-    "MembershipSignInPost": {
+    "ProxyMethod": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "RestApiId": {
           "Ref": "RestApi"
         },
         "ResourceId": {
-          "Ref": "MembershipSignIn"
+          "Ref": "ProxyResource"
         },
-        "HttpMethod": "POST",
+        "HttpMethod": "ANY",
         "AuthorizationType": "NONE",
         "Integration": {
-          "Type": "AWS",
+          "Type": "AWS_PROXY",
           "IntegrationHttpMethod": "POST",
+          "PassthroughBehavior": "NEVER",
           "Uri": {
             "Fn::Join": [
               "",
@@ -183,35 +185,8 @@
                 "/invocations"
               ]
             ]
-          },
-          "IntegrationResponses": [
-            {
-              "ResponseTemplates": {
-                "application/json": "$input.json('$.body')"
-              },
-              "ResponseParameters": {
-                "method.response.header.MyHeader": "integration.response.body.headers.MyHeader"
-              },
-              "StatusCode": 200
-            }
-          ],
-          "PassthroughBehavior": "NEVER",
-          "RequestTemplates": {
-            "application/json": "{\"route\":\"signin\",\"body\":$input.json('$'),\"env\":\"${stageVariables.env}\"}"
           }
-        },
-        "RequestParameters": {
-        },
-        "MethodResponses": [
-          {
-            "ResponseModels": {
-            },
-            "ResponseParameters": {
-              "method.response.header.MyHeader": true
-            },
-            "StatusCode": 200
-          }
-        ]
+        }
       }
     },
     "Deployment": {
@@ -222,7 +197,7 @@
         }
       },
       "DependsOn": [
-        "MembershipSignInPost"
+        "ProxyMethod"
       ]
     },
     "Stage": {
