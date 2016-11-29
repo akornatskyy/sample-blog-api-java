@@ -21,11 +21,11 @@ Run application as an executable jar.
 
 Deploy to `test` Cloud Formation stack:
 
-    update-stack.sh test
+    update-stack.sh sample-blog-api
 
 Delete stack:
 
-    aws cloudformation delete-stack --stack-name test
+    aws cloudformation delete-stack --stack-name sample-blog-api
 
 # curl
 
