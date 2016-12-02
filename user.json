@@ -15,6 +15,29 @@
         "Policies": [
         ]
       }
+    },
+    "AccessKey": {
+      "Type": "AWS::IAM::AccessKey",
+      "Properties": {
+        "UserName": {
+          "Ref": "User"
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "AccessKey": {
+      "Value": {
+        "Ref": "AccessKey"
+      }
+    },
+    "SecretKey": {
+      "Value": {
+        "Fn::GetAtt": [
+          "AccessKey",
+          "SecretAccessKey"
+        ]
+      }
     }
   }
 }
