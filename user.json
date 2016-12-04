@@ -46,6 +46,33 @@
                       ]
                     ]
                   }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "iam:GetRole",
+                    "iam:CreateRole",
+                    "iam:DeleteRole",
+                    "iam:PassRole"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:aws:iam::",
+                          {
+                            "Ref": "AWS::AccountId"
+                          },
+                          ":role/",
+                          {
+                            "Ref": "UserName"
+                          },
+                          "-*"
+                        ]
+                      ]
+                    }
+                  ]
                 }
               ]
             }
