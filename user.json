@@ -73,6 +73,36 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "iam:DetachRolePolicy",
+                    "iam:AttachRolePolicy"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:aws:iam::",
+                          {
+                            "Ref": "AWS::AccountId"
+                          },
+                          ":role/",
+                          {
+                            "Ref": "UserName"
+                          },
+                          "-*"
+                        ]
+                      ]
+                    }
+                  ],
+                  "Condition": {
+                    "ArnLike": {
+                      "iam:PolicyArn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                    }
+                  }
                 }
               ]
             }
