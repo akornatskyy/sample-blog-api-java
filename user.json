@@ -103,6 +103,26 @@
                       "iam:PolicyArn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
                     }
                   }
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "apigateway:POST"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:aws:apigateway:",
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "::/restapis"
+                        ]
+                      ]
+                    }
+                  ]
                 }
               ]
             }
