@@ -123,6 +123,30 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "apigateway:GET",
+                    "apigateway:POST",
+                    "apigateway:DELETE",
+                    "apigateway:PUT",
+                    "apigateway:PATCH"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:aws:apigateway:",
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          "::/restapis/*"
+                        ]
+                      ]
+                    }
+                  ]
                 }
               ]
             }
