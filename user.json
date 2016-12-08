@@ -147,6 +147,15 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "lambda:CreateFunction"
+                  ],
+                  "Resource": [
+                    "*"
+                  ]
                 }
               ]
             }
