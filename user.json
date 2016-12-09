@@ -156,6 +156,38 @@
                   "Resource": [
                     "*"
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "lambda:GetFunction",
+                    "lambda:DeleteFunction",
+                    "lambda:GetFunctionConfiguration",
+                    "lambda:AddPermission",
+                    "lambda:RemovePermission"
+                  ],
+                  "Resource": [
+                    {
+                      "Fn::Join": [
+                        "",
+                        [
+                          "arn:aws:lambda:",
+                          {
+                            "Ref": "AWS::Region"
+                          },
+                          ":",
+                          {
+                            "Ref": "AWS::AccountId"
+                          },
+                          ":function:",
+                          {
+                            "Ref": "UserName"
+                          },
+                          "-*"
+                        ]
+                      ]
+                    }
+                  ]
                 }
               ]
             }
