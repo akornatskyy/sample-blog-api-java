@@ -19,12 +19,18 @@ Run application as an executable jar.
     
 ## AWS
 
-Deploy to `test` Cloud Formation stack:
+Deploy `user` Cloud Formation stack:
+
+    update-user.sh sample-blog
+
+Switch to just created user credentials and deploy `sample-blog-api` 
+stack:
 
     update-stack.sh sample-blog-api
 
 Delete stack:
 
+    aws cloudformation delete-stack --stack-name sample-blog-user
     aws cloudformation delete-stack --stack-name sample-blog-api
 
 # curl
