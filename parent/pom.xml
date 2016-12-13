@@ -25,6 +25,7 @@
     <spring.boot.dependencies.version>
       1.4.1.RELEASE
     </spring.boot.dependencies.version>
+    <aws.lambda.java.core.version>1.1.0</aws.lambda.java.core.version>
     <spring.boot.maven.plugin>
       ${spring.boot.dependencies.version}
     </spring.boot.maven.plugin>
@@ -32,6 +33,7 @@
     <maven.clean.plugin>3.0.0</maven.clean.plugin>
     <maven.checkstyle.plugin>2.17</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.5.1</maven.compiler.plugin>
+    <maven.shade.plugin>2.3</maven.shade.plugin>
     <maven.dependency.plugin>2.10</maven.dependency.plugin>
     <maven.deploy.plugin>2.8.2</maven.deploy.plugin>
     <maven.enforcer.plugin>1.4.1</maven.enforcer.plugin>
@@ -75,6 +77,11 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-lambda-java-core</artifactId>
+        <version>${aws.lambda.java.core.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
         <version>${testng.version}</version>
@@ -107,6 +114,11 @@
             <source>${java.version}</source>
             <target>${java.version}</target>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>${maven.shade.plugin}</version>
         </plugin>
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
