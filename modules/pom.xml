@@ -17,6 +17,7 @@
     <module>membership</module>
     <module>posts</module>
     <module>app</module>
+    <module>aws</module>
   </modules>
 
 </project>
