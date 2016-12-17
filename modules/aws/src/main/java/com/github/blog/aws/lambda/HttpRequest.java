@@ -10,6 +10,7 @@ public final class HttpRequest {
   private Map<String, String> stageVariables;
   private String body;
   private Boolean isBase64Encoded;
+  private RequestContext requestContext;
 
   public String getHttpMethod() {
     return httpMethod;
@@ -65,5 +66,13 @@ public final class HttpRequest {
 
   public void setBase64Encoded(Boolean base64Encoded) {
     isBase64Encoded = base64Encoded;
+  }
+
+  public RequestContext getRequestContext() {
+    return requestContext;
+  }
+
+  public void setRequestContext(RequestContext requestContext) {
+    this.requestContext = requestContext;
   }
 }
