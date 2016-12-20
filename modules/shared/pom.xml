@@ -20,5 +20,6 @@
       <groupId>javax.validation</groupId>
       <artifactId>validation-api</artifactId>
     </dependency>
+    <!-- Test scope dependencies start here. -->
   </dependencies>
 </project>
