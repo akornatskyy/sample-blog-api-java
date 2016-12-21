@@ -9,11 +9,8 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <prerequisites>
-    <maven>3.0</maven>
+    <maven>3.2.1</maven>
   </prerequisites>
-
-  <name>sample-blog-parent</name>
-  <description>A simple blog parent pom.</description>
 
   <properties>
     <java.version>1.8</java.version>

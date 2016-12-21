@@ -12,9 +12,6 @@
 
   <artifactId>sample-blog-posts</artifactId>
 
-  <name>sample-blog-posts</name>
-  <description>A simple blog posts module.</description>
-
   <dependencies>
     <dependency>
       <groupId>com.github</groupId>

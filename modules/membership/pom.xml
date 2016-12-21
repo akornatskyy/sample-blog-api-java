@@ -12,9 +12,6 @@
 
   <artifactId>sample-blog-membership</artifactId>
 
-  <name>sample-blog-membership</name>
-  <description>A simple blog membership module.</description>
-
   <dependencies>
     <dependency>
       <groupId>org.slf4j</groupId>

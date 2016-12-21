@@ -12,9 +12,6 @@
 
   <artifactId>sample-blog-shared</artifactId>
 
-  <name>sample-blog-shared</name>
-  <description>A simple blog shared module.</description>
-
   <dependencies>
     <dependency>
       <groupId>javax.validation</groupId>

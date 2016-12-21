@@ -9,9 +9,6 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>sample-blog-modules</name>
-  <description>A simple blog modules.</description>
-
   <modules>
     <module>shared</module>
     <module>membership</module>
