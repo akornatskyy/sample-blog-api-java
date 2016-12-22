@@ -28,12 +28,12 @@
     <dependency>
       <groupId>com.github</groupId>
       <artifactId>sample-blog-membership</artifactId>
-      <version>${version}</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>com.github</groupId>
       <artifactId>sample-blog-posts</artifactId>
-      <version>${version}</version>
+      <version>${project.version}</version>
     </dependency>
     <!-- Test scope dependencies start here. -->
   </dependencies>

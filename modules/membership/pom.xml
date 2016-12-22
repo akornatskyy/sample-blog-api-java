@@ -28,7 +28,7 @@
     <dependency>
       <groupId>com.github</groupId>
       <artifactId>sample-blog-shared</artifactId>
-      <version>${version}</version>
+      <version>${project.version}</version>
     </dependency>
     <!-- Test scope dependencies start here. -->
     <dependency>
