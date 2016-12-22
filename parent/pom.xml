@@ -14,13 +14,13 @@
 
   <properties>
     <java.version>1.8</java.version>
-    <testng.version>6.9.10</testng.version>
+    <testng.version>6.10</testng.version>
     <mockito.version>1.10.19</mockito.version>
     <javax.inject>1</javax.inject>
-    <slf4j.api.version>1.7.21</slf4j.api.version>
+    <slf4j.api.version>1.7.22</slf4j.api.version>
     <validation.api.version>1.1.0.Final</validation.api.version>
     <spring.boot.dependencies.version>
-      1.4.1.RELEASE
+      1.4.3.RELEASE
     </spring.boot.dependencies.version>
     <aws.lambda.java.core.version>1.1.0</aws.lambda.java.core.version>
     <spring.boot.maven.plugin>
@@ -78,6 +78,7 @@
         <artifactId>aws-lambda-java-core</artifactId>
         <version>${aws.lambda.java.core.version}</version>
       </dependency>
+      <!-- Test scope dependencies start here. -->
       <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>
