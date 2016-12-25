@@ -19,19 +19,23 @@ Run application as an executable jar.
     
 ## AWS
 
-Deploy `user` Cloud Formation stack:
+Create S3 bucket for `jar` file and set environment variable:
 
-    update-user.sh sample-blog
+    export S3_JAR_BUCKET=<my-unique-bucket-name>
+    
+Deploy `user` Cloud Formation stack (optional):
 
-Switch to just created user credentials and deploy `sample-blog-api` 
-stack:
+    ./update-user.sh sample-blog
 
-    update-stack.sh sample-blog-api
+Switch to just created user credentials (see `~/.aws/credentials`) 
+and deploy `sample-blog-api` stack:
 
-Delete stack:
+    ./update-stack.sh sample-blog-api
 
-    aws cloudformation delete-stack --stack-name sample-blog-user
+Delete stacks:
+
     aws cloudformation delete-stack --stack-name sample-blog-api
+    aws cloudformation delete-stack --stack-name sample-blog-user
 
 # curl
 
