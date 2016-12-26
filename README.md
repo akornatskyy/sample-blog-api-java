@@ -27,6 +27,11 @@ Deploy `user` Cloud Formation stack (optional):
 
     ./update-user.sh sample-blog
 
+Upload jar file to S3 bucket:
+
+    aws s3 cp modules/aws/target/sample-blog-aws-1.0-SNAPSHOT.jar \
+      s3://$S3_JAR_BUCKET/
+
 Switch to just created user credentials (see `~/.aws/credentials`) 
 and deploy `sample-blog-api` stack:
 
