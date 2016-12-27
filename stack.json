@@ -1,5 +1,16 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "S3JarBucket": {
+      "Description": "The name of the S3 bucket that contains the source code of Lambda function.",
+      "Type": "String"
+    },
+    "JarFileName": {
+      "Description": "The location and name of jar file.",
+      "Type": "String",
+      "Default": "sample-blog-aws-1.0-SNAPSHOT.jar"
+    }
+  },
   "Resources": {
     "LambdaLogGroup": {
       "Type": "AWS::Logs::LogGroup",
@@ -66,7 +77,7 @@
             ]
           ]
         },
-        "Handler": "index.handler",
+        "Handler": "com.github.blog.aws.lambda.ApiRequestHandler",
         "Role": {
           "Fn::GetAtt": [
             "LambdaRole",
@@ -74,24 +85,21 @@
           ]
         },
         "Code": {
-          "ZipFile": {
+          "S3Bucket": {
+            "Ref": "S3JarBucket"
+          },
+          "S3Key": {
             "Fn::Join": [
-              "\n",
+              "",
               [
-                "exports.handler = function(event, context) {",
-                "  console.log('event: ' + JSON.stringify(event, null, 2));",
-                "  console.log('context: ' + JSON.stringify(context, null, 2));",
-                "  context.succeed({",
-                "    statusCode: 200,",
-                "    headers: {'Content-Type': 'application/json'},",
-                "    body: JSON.stringify({message: 'Hello World!', event: event})",
-                "  })",
-                "}"
+                {
+                  "Ref": "JarFileName"
+                }
               ]
             ]
           }
         },
-        "Runtime": "nodejs4.3",
+        "Runtime": "java8",
         "MemorySize": 128,
         "Timeout": 5
       }
