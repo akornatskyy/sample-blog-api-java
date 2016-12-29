@@ -3,6 +3,9 @@
   "Parameters": {
     "UserName": {
       "Type": "String"
+    },
+    "S3JarBucket": {
+      "Type": "String"
     }
   },
   "Resources": {
@@ -147,6 +150,29 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:GetObject",
+                    "s3:PutObject"
+                  ],
+                  "Resource": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:aws:s3:::",
+                        {
+                          "Ref": "S3JarBucket"
+                        },
+                        "/",
+                        {
+                          "Ref": "UserName"
+                        },
+                        "-*"
+                      ]
+                    ]
+                  }
                 },
                 {
                   "Effect": "Allow",
