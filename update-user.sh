@@ -1,8 +1,15 @@
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 <user-name>"
-    exit 1
+  echo "Usage: $0 <user-name>"
+  exit 1
+fi
+
+if [ "${S3_JAR_BUCKET}" == "" ]; then
+  echo "ERROR: environment variable S3_JAR_BUCKET is not set."
+  echo ""
+  echo "export S3_JAR_BUCKET=<my-bucket-name>"
+  exit 1
 fi
 
 STACK_NAME=$1-user
@@ -33,6 +40,7 @@ fi
 echo $cmd stack initiated
 $cf $cmd-stack --stack-name $STACK_NAME --capabilities CAPABILITY_NAMED_IAM \
   --parameters ParameterKey=UserName,ParameterValue=$1 \
+  ParameterKey=S3JarBucket,ParameterValue=${S3_JAR_BUCKET} \
   --template-body file://user.json > /dev/null
 if [ "$?" == "0" ]; then
   $cf wait stack-$cmd-complete --stack-name $STACK_NAME
