@@ -190,7 +190,8 @@
                     "lambda:DeleteFunction",
                     "lambda:GetFunctionConfiguration",
                     "lambda:AddPermission",
-                    "lambda:RemovePermission"
+                    "lambda:RemovePermission",
+                    "lambda:UpdateFunctionCode"
                   ],
                   "Resource": [
                     {
