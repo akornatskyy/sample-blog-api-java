@@ -37,6 +37,12 @@ and deploy `sample-blog-api` stack:
 
     ./update-stack.sh sample-blog-api
 
+During development AWS Lambda function code can be updated with:
+
+    aws lambda update-function-code \
+      --function-name sample-blog-request-handler \
+      --s3-bucket $S3_JAR_BUCKET --s3-key sample-blog-aws-1.0-SNAPSHOT.jar
+
 Delete stacks:
 
     aws cloudformation delete-stack --stack-name sample-blog-api
