@@ -18,6 +18,9 @@ fi
 
 JAR_FILE=sample-blog-aws-1.0-SNAPSHOT.jar
 
+echo "packaging jar file"
+mvn -q -T4 -DskipTests clean package
+
 echo "uploading..."
 aws s3 cp modules/aws/target/${JAR_FILE} s3://${S3_JAR_BUCKET}
 
