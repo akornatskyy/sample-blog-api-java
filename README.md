@@ -43,6 +43,10 @@ During development AWS Lambda function code can be updated with:
       --function-name sample-blog-request-handler \
       --s3-bucket $S3_JAR_BUCKET --s3-key sample-blog-aws-1.0-SNAPSHOT.jar
 
+or using bash script:
+
+    ./update-lambda.sh sample-blog-api
+
 Delete stacks:
 
     aws cloudformation delete-stack --stack-name sample-blog-api
