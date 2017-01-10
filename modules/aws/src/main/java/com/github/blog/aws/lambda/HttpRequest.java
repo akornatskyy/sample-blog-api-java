@@ -11,6 +11,7 @@ public final class HttpRequest {
   private String body;
   private Boolean isBase64Encoded;
   private RequestContext requestContext;
+  private String routeName;
 
   public String getHttpMethod() {
     return httpMethod;
@@ -74,5 +75,13 @@ public final class HttpRequest {
 
   public void setRequestContext(RequestContext requestContext) {
     this.requestContext = requestContext;
+  }
+
+  public String getRouteName() {
+    return routeName;
+  }
+
+  public void setRouteName(String routeName) {
+    this.routeName = routeName;
   }
 }
