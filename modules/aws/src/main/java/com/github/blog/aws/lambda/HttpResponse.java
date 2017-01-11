@@ -4,6 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class HttpResponse {
+  public static final HttpResponse NOT_FOUND;
+  public static final HttpResponse INTERNAL_SERVER_ERROR;
+
+  static {
+    NOT_FOUND = new HttpResponse();
+    NOT_FOUND.setStatusCode(404);
+    INTERNAL_SERVER_ERROR = new HttpResponse();
+    INTERNAL_SERVER_ERROR.setStatusCode(500);
+    INTERNAL_SERVER_ERROR.setBody(
+        "The server encountered an unexpected condition which "
+        + "prevented it from fulfilling the request.");
+  }
 
   private int statusCode = 200;
   private Map<String, String> headers = new HashMap<>();
