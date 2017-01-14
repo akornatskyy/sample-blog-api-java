@@ -1,6 +1,6 @@
 package com.github.blog.aws.lambda;
 
-public final class Router {
+final class Router {
   private Router() {
   }
 

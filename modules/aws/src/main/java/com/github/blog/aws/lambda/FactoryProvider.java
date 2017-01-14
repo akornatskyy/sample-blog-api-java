@@ -4,7 +4,7 @@ import com.github.blog.shared.PropertiesLoader;
 
 import java.util.Map;
 
-public class FactoryProvider {
+class FactoryProvider {
   private static final String ENVIRONMENT = "env";
   private static final String DEFAULT_ENVIRONMENT = "dev";
 
