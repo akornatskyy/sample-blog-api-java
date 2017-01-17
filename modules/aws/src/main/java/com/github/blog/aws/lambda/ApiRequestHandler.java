@@ -4,6 +4,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.blog.membership.web.models.SignInRequest;
 import com.github.blog.shared.service.ErrorState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,6 +64,11 @@ public final class ApiRequestHandler
       case RouteNames.WELCOME:
         result = factory.createWelcomeFacade()
             .process(request);
+        break;
+      case RouteNames.SIGNIN:
+        result = factory.createSignInFacade(errorState)
+            .authenticate(
+                mapper.readValue(request.getBody(), SignInRequest.class));
         break;
       default:
         throw new IllegalStateException(
