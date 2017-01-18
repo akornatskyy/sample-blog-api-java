@@ -38,12 +38,12 @@ public final class ErrorStateResponseBodyAdvice
       return;
     }
 
+    serverHttpResponse.setStatusCode(HttpStatus.BAD_REQUEST);
     ErrorState errorState = this.applicationContext.getBean(ErrorState.class);
     if (!errorState.hasErrors()) {
       return;
     }
 
-    serverHttpResponse.setStatusCode(HttpStatus.BAD_REQUEST);
     mappingJacksonValue.setValue(errorState.getErrors());
   }
 }
