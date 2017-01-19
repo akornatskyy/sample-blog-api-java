@@ -10,6 +10,21 @@ final class Router {
       return null;
     }
 
-    return RouteNames.WELCOME;
+    if ("/".equals(path)) {
+      return RouteNames.WELCOME;
+    }
+
+    path = path.toLowerCase();
+    if (!path.startsWith("/v1/")) {
+      return null;
+    }
+
+    path = path.substring(4);
+    switch (path) {
+      case "signin":
+        return RouteNames.SIGNIN;
+      default:
+        return null;
+    }
   }
 }
