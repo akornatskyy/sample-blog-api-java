@@ -20,6 +20,15 @@ final class Router {
     }
 
     path = path.substring(4);
+    switch (request.getHttpMethod()) {
+      case "POST":
+        return matchHttpPost(path);
+      default:
+        return null;
+    }
+  }
+
+  private static String matchHttpPost(String path) {
     switch (path) {
       case "signin":
         return RouteNames.SIGNIN;
