@@ -5,6 +5,7 @@ import com.github.blog.membership.repository.mock.UserRepositoryImpl;
 import com.github.blog.membership.service.UserService;
 import com.github.blog.membership.service.UserServiceBridge;
 import com.github.blog.membership.web.SignInFacade;
+import com.github.blog.membership.web.SignUpFacade;
 import com.github.blog.shared.service.ErrorState;
 
 import java.util.Properties;
@@ -19,6 +20,10 @@ class Factory {
 
   public SignInFacade createSignInFacade(ErrorState errorState) {
     return new SignInFacade(userService(errorState));
+  }
+
+  public SignUpFacade createSignUpFacade(ErrorState errorState) {
+    return new SignUpFacade(userService(errorState));
   }
 
   private UserService userService(ErrorState errorState) {
