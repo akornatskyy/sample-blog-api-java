@@ -19,13 +19,8 @@
     <javax.inject>1</javax.inject>
     <slf4j.api.version>1.7.22</slf4j.api.version>
     <validation.api.version>1.1.0.Final</validation.api.version>
-    <spring.boot.dependencies.version>
-      1.4.3.RELEASE
-    </spring.boot.dependencies.version>
+    <spring.boot.version>1.4.3.RELEASE</spring.boot.version>
     <aws.lambda.java.core.version>1.1.0</aws.lambda.java.core.version>
-    <spring.boot.maven.plugin>
-      ${spring.boot.dependencies.version}
-    </spring.boot.maven.plugin>
     <maven.assembly.plugin>3.0.0</maven.assembly.plugin>
     <maven.clean.plugin>3.0.0</maven.clean.plugin>
     <maven.checkstyle.plugin>2.17</maven.checkstyle.plugin>
@@ -70,7 +65,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
         <type>pom</type>
-        <version>${spring.boot.dependencies.version}</version>
+        <version>${spring.boot.version}</version>
         <scope>import</scope>
       </dependency>
       <dependency>
