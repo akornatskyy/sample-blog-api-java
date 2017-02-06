@@ -19,7 +19,7 @@
     <javax.inject>1</javax.inject>
     <slf4j.api.version>1.7.22</slf4j.api.version>
     <validation.api.version>1.1.0.Final</validation.api.version>
-    <spring.boot.version>1.4.3.RELEASE</spring.boot.version>
+    <spring.boot.version>1.5.1.RELEASE</spring.boot.version>
     <aws.lambda.java.core.version>1.1.0</aws.lambda.java.core.version>
     <maven.assembly.plugin>3.0.0</maven.assembly.plugin>
     <maven.clean.plugin>3.0.0</maven.clean.plugin>
