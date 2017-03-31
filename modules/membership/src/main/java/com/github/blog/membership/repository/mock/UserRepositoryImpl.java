@@ -16,7 +16,7 @@ public class UserRepositoryImpl implements UserRepository {
   private static final ArrayNode USERS;
 
   static {
-    try (InputStream is = Object.class.getResourceAsStream(
+    try (InputStream is = UserRepositoryImpl.class.getResourceAsStream(
         "/user-samples.json")) {
       USERS = (ArrayNode) new ObjectMapper().readTree(is).get("users");
     } catch (IOException ex) {
