@@ -2,16 +2,18 @@ FROM openjdk:8-jdk-alpine
 
 MAINTAINER Andriy Kornatskyy <andriy.kornatskyy@live.com>
 
-ENV MAVEN_VERSION=3.3.9
+ENV MAVEN_VERSION=3.5.0
 ENV APP_VERSION=1.0-SNAPSHOT
 
 RUN set -ex \
     \
     && apk add --no-cache --virtual .build-deps \
+        ca-certificates \
+        openssl \
         git \
     \
     && mkdir -p /usr/local/maven \
-    && wget -c http://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+    && wget -c https://www-eu.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
         -O - | tar -xzC /usr/local/maven --strip-components=1 \
     \
     && git clone https://github.com/akornatskyy/sample-blog-api-java.git src \
