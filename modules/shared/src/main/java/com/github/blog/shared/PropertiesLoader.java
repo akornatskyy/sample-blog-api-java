@@ -16,7 +16,9 @@ public final class PropertiesLoader {
     Properties properties = new Properties();
     try (InputStream in = PropertiesLoader.class.getClassLoader()
         .getResourceAsStream(name)) {
-      properties.load(in);
+      if (in != null) {
+        properties.load(in);
+      }
     } catch (IOException ex) {
       throw new IllegalStateException(
           String.format("Unable to load %s file.", name));
