@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.util.Collection;
-import java.util.Map;
-
 @ControllerAdvice
 public final class ErrorHandlerResponseBodyAdvice {
 
@@ -21,7 +18,7 @@ public final class ErrorHandlerResponseBodyAdvice {
   @ExceptionHandler(MethodArgumentNotValidException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   @ResponseBody
-  public Map<String, Collection<String>> handleMethodArgumentNotValidException(
+  public ErrorState handleMethodArgumentNotValidException(
       MethodArgumentNotValidException ex) {
 
     ErrorState errorState = new ErrorState();
@@ -29,6 +26,6 @@ public final class ErrorHandlerResponseBodyAdvice {
       errorState.addError(fe.getField(), fe.getDefaultMessage());
     }
 
-    return errorState.getErrors();
+    return errorState;
   }
 }

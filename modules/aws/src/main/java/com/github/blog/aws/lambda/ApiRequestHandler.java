@@ -4,6 +4,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.blog.membership.Factory;
 import com.github.blog.membership.web.models.SignInRequest;
 import com.github.blog.membership.web.models.SignUpRequest;
 import com.github.blog.shared.service.ErrorState;
@@ -63,8 +64,7 @@ public final class ApiRequestHandler
     Object result;
     switch (request.getRouteName()) {
       case RouteNames.WELCOME:
-        result = factory.createWelcomeFacade()
-            .process(request);
+        result = new WelcomeFacade().process(request);
         break;
       case RouteNames.SIGNIN:
         result = factory.createSignInFacade(errorState)
@@ -73,8 +73,8 @@ public final class ApiRequestHandler
         break;
       case RouteNames.SIGNUP:
         result = factory.createSignUpFacade(errorState)
-          .createAccount(
-              mapper.readValue(request.getBody(), SignUpRequest.class));
+            .createAccount(
+                mapper.readValue(request.getBody(), SignUpRequest.class));
         break;
       default:
         throw new IllegalStateException(
@@ -82,7 +82,7 @@ public final class ApiRequestHandler
     }
 
     HttpResponse response = new HttpResponse();
-    if (result == null) {
+    if (errorState.hasErrors()) {
       response.setStatusCode(SC_BAD_REQUEST);
       result = errorState.getErrors();
     }

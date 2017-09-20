@@ -13,7 +13,7 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.AbstractMappingJacksonResponseBodyAdvice;
 
-@ControllerAdvice
+//@ControllerAdvice
 public final class ErrorStateResponseBodyAdvice
     extends AbstractMappingJacksonResponseBodyAdvice
     implements ApplicationContextAware {

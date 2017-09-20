@@ -15,11 +15,15 @@
   <properties>
     <java.version>1.8</java.version>
     <testng.version>6.11</testng.version>
-    <mockito.version>2.8.9</mockito.version>
+    <mockito.version>2.10.0</mockito.version>
     <javax.inject>1</javax.inject>
-    <slf4j.api.version>1.8.0-alpha2</slf4j.api.version>
-    <validation.api.version>2.0.0.Beta2</validation.api.version>
-    <spring.boot.version>1.5.3.RELEASE</spring.boot.version>
+    <slf4j.api.version>1.7.25</slf4j.api.version>
+    <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
+    <validation.api.version>1.1.0.Final</validation.api.version>
+    <hibernate.validator.version>5.2.1.Final</hibernate.validator.version>
+    <javax.el.api.version>2.2.5</javax.el.api.version>
+    <javax.el.version>2.2.6</javax.el.version>
+    <spring.boot.version>1.5.7.RELEASE</spring.boot.version>
     <aws.lambda.java.core.version>1.1.0</aws.lambda.java.core.version>
     <maven.assembly.plugin>3.0.0</maven.assembly.plugin>
     <maven.clean.plugin>3.0.0</maven.clean.plugin>
@@ -52,6 +56,26 @@
         <version>${validation.api.version}</version>
       </dependency>
       <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${hibernate.validator.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator-annotation-processor</artifactId>
+        <version>${hibernate.validator.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.el</groupId>
+        <artifactId>javax.el-api</artifactId>
+        <version>${javax.el.api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.glassfish.web</groupId>
+        <artifactId>javax.el</artifactId>
+        <version>${javax.el.version}</version>
+      </dependency>
+      <dependency>
         <groupId>javax.inject</groupId>
         <artifactId>javax.inject</artifactId>
         <version>${javax.inject}</version>
@@ -60,6 +84,16 @@
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j.api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>${ch.qos.logback.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${ch.qos.logback.version}</version>
       </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>

@@ -1,6 +1,9 @@
 package com.github.blog.membership.web.models;
 
 public final class SignInResponse {
+  
+  public static final SignInResponse ERROR = new SignInResponse();
+
   private String username;
 
   public String getUsername() {

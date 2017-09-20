@@ -10,17 +10,10 @@ final class Router {
       return null;
     }
 
-    if ("/".equals(path)) {
-      return RouteNames.WELCOME;
-    }
-
     path = path.toLowerCase();
-    if (!path.startsWith("/v1/")) {
-      return null;
-    }
-
-    path = path.substring(4);
     switch (request.getHttpMethod()) {
+      case "GET":
+        return matchHttpGet(path);
       case "POST":
         return matchHttpPost(path);
       default:
@@ -28,10 +21,21 @@ final class Router {
     }
   }
 
+  private static String matchHttpGet(String path) {
+    switch (path) {
+      case "/welcome":
+        return RouteNames.WELCOME;
+      default:
+        return null;
+    }
+  }
+
   private static String matchHttpPost(String path) {
     switch (path) {
-      case "signin":
+      case "/signin":
         return RouteNames.SIGNIN;
+      case "/signup":
+        return RouteNames.SIGNUP;
       default:
         return null;
     }

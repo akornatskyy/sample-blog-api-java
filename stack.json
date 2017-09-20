@@ -100,8 +100,8 @@
           }
         },
         "Runtime": "java8",
-        "MemorySize": 128,
-        "Timeout": 5
+        "MemorySize": 256,
+        "Timeout": 15
       }
     },
     "RestApi": {

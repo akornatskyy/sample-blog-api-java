@@ -3,6 +3,8 @@ package com.github.blog.membership.web;
 import com.github.blog.membership.service.UserService;
 import com.github.blog.membership.web.models.SignInRequest;
 import com.github.blog.membership.web.models.SignInResponse;
+import com.github.blog.shared.service.ErrorState;
+import com.github.blog.shared.service.ValidationService;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -17,6 +19,7 @@ public class SignInFacadeTest {
   private UserService mockUserService;
 
   private SignInRequest request;
+  private ValidationService validationService;
   private SignInFacade signInFacade;
 
   @BeforeMethod
@@ -25,7 +28,8 @@ public class SignInFacadeTest {
     request = new SignInRequest();
     request.setUsername("demo");
     request.setPassword("password");
-    signInFacade = new SignInFacade(mockUserService);
+    validationService = new ValidationService(new ErrorState());
+    signInFacade = new SignInFacade(validationService, mockUserService);
   }
 
   @AfterMethod
@@ -38,7 +42,7 @@ public class SignInFacadeTest {
   public void testAuthenticateFailed() {
     SignInResponse response = signInFacade.authenticate(request);
 
-    Assert.assertNull(response);
+    Assert.assertEquals(response, SignInResponse.ERROR);
     Mockito.verify(mockUserService).authenticate(
         request.getUsername(), request.getPassword());
   }
