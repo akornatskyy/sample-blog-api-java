@@ -8,9 +8,6 @@
   <artifactId>sample-blog-api</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <prerequisites>
-    <maven>3.0</maven>
-  </prerequisites>
 
   <name>sample-blog-api</name>
   <description>A simple blog API.</description>

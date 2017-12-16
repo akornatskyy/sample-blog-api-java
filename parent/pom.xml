@@ -8,9 +8,6 @@
   <artifactId>sample-blog-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <prerequisites>
-    <maven>3.2.1</maven>
-  </prerequisites>
 
   <properties>
     <java.version>1.8</java.version>
@@ -43,7 +40,6 @@
     <maven.site.plugin>3.6</maven.site.plugin>
     <maven.source.plugin>3.0.1</maven.source.plugin>
     <maven.surefire.plugin>2.20</maven.surefire.plugin>
-    <maven.version.range>[3.0.5,3.5.0]</maven.version.range>
     <maven.versions.plugin>2.2</maven.versions.plugin>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -219,11 +215,6 @@
                     <excludes>
                     </excludes>
                   </bannedDependencies>
-                  <requireMavenVersion>
-                    <version>
-                      ${maven.version.range}
-                    </version>
-                  </requireMavenVersion>
                   <requireJavaVersion>
                     <version>${java.version}</version>
                   </requireJavaVersion>
