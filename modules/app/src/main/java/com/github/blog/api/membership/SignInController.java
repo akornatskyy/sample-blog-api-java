@@ -5,6 +5,7 @@ import com.github.blog.membership.web.SignInFacade;
 import com.github.blog.membership.web.models.SignInRequest;
 import com.github.blog.membership.web.models.SignInResponse;
 import com.github.blog.shared.service.ErrorState;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,9 +33,9 @@ public final class SignInController {
     SignInResponse response = facade.authenticate(request);
 
     if (response == SignInResponse.ERROR) {
-      return ResponseEntity.badRequest().body(errorState);
+      return new ResponseEntity<>(errorState, HttpStatus.BAD_REQUEST);
     }
 
-    return ResponseEntity.ok(response);
+    return new ResponseEntity<>(response, HttpStatus.OK);
   }
 }
