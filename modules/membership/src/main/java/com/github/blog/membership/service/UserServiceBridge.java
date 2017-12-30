@@ -6,6 +6,7 @@ import com.github.blog.membership.repository.UserRepository;
 import com.github.blog.shared.PropertiesLoader;
 import com.github.blog.shared.service.ErrorState;
 
+import java.util.Objects;
 import java.util.Properties;
 
 public final class UserServiceBridge implements UserService {
@@ -25,7 +26,7 @@ public final class UserServiceBridge implements UserService {
   @Override
   public boolean authenticate(String username, String password) {
     AuthInfo authInfo = userRepository.findAuthInfo(username.toLowerCase());
-    if (authInfo == null || !authInfo.getPassword().equals(password)) {
+    if (authInfo == null || !Objects.equals(authInfo.getPassword(), password)) {
       this.errorState.addError(messages.getProperty("signInFailed"));
       return false;
     }
