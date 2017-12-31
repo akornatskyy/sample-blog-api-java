@@ -7,8 +7,6 @@ import com.github.blog.shared.service.ValidationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.validation.Valid;
-
 public final class SignInFacade {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(
