@@ -1,17 +1,13 @@
 package com.github.blog.membership.web.models;
 
-import com.github.blog.shared.validator.constraints.NotEmpty;
-
-import javax.validation.constraints.Size;
+import com.github.blog.shared.validator.constraints.Length;
 
 public final class SignInRequest {
 
-  @NotEmpty
-  @Size(min = 2, max = 20)
+  @Length(min = 2, max = 20)
   private String username;
 
-  @NotEmpty
-  @Size(min = 8, max = 12)
+  @Length(min = 8, max = 12)
   private String password;
 
   public String getUsername() {
