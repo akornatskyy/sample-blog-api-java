@@ -1,0 +1,10 @@
+{
+  "errors": {
+    "password": [
+      "Required field cannot be left blank."
+    ],
+    "username": [
+      "Required field cannot be left blank."
+    ]
+  }
+}
