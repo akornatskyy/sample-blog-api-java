@@ -17,7 +17,8 @@ public final class SignInFacadeFunctionalTest {
   @DataProvider
   public Object[][] samples() {
     return new Object[][] {
-        {1, "a null request causes validation errors"}
+        {1, "a null request causes validation errors"},
+        {2, "an empty request causes validation errors"}
     };
   }
 
