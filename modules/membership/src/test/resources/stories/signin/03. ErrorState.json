@@ -1,0 +1,10 @@
+{
+  "errors": {
+    "password": [
+      "The length must fall within the range 8 - 12 characters."
+    ],
+    "username": [
+      "The length must fall within the range 2 - 20 characters."
+    ]
+  }
+}
