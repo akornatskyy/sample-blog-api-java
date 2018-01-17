@@ -20,7 +20,8 @@ public final class SignInFacadeFunctionalTest {
         {1, "a null request causes validation errors"},
         {2, "an empty request causes validation errors"},
         {3, "request cause validation errors"},
-        {11, "request with invalid credentials"}
+        {11, "request with invalid credentials"},
+        {12, "request for locked account"}
     };
   }
 
