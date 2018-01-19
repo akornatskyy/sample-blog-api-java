@@ -14,7 +14,7 @@ RUN set -ex \
     && git clone https://github.com/akornatskyy/sample-blog-api-java.git src \
     \
     && cd src \
-    && mvn -T"$(getconf _NPROCESSORS_ONLN)" verify \
+    && mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -T"$(getconf _NPROCESSORS_ONLN)" verify \
     && mkdir -p /app \
     && mv /src/modules/app/target/sample-blog-app-${APP_VERSION}.jar /app \
     \
