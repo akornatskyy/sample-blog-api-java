@@ -21,4 +21,4 @@ RUN set -ex \
     && rm -rf /src ~/.m2 \
     && apk del .build-deps
 
-CMD java -jar /app/sample-blog-app-$APP_VERSION.jar
+CMD java -Xms64M -Xmx64M -jar /app/sample-blog-app-$APP_VERSION.jar
