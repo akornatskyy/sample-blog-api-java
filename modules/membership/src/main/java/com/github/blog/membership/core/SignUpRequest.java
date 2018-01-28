@@ -1,4 +1,4 @@
-package com.github.blog.membership.web.models;
+package com.github.blog.membership.core;
 
 import com.github.blog.shared.validator.constraints.Length;
 

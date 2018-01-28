@@ -1,8 +1,9 @@
-package com.github.blog.membership.web;
+package com.github.blog.membership.core;
 
-import com.github.blog.membership.service.UserService;
-import com.github.blog.membership.web.models.SignInRequest;
-import com.github.blog.membership.web.models.SignInResponse;
+import com.github.blog.membership.core.SignInFacade;
+import com.github.blog.membership.core.UserService;
+import com.github.blog.membership.core.SignInRequest;
+import com.github.blog.membership.core.SignInResponse;
 import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
 import org.mockito.Mock;
@@ -13,7 +14,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class SignInFacadeTest {
+public final class SignInFacadeTest {
 
   @Mock
   private UserService mockUserService;

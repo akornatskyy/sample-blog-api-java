@@ -1,8 +1,8 @@
-package com.github.blog.membership.web;
+package com.github.blog.membership.core;
 
 import org.testng.Assert;
 
-class AssertHelper {
+final class AssertHelper {
   public static void assertSampleEquals(Object actual, String sample) {
     Object expected = TestCaseResourceLoader.getResourceAsValue(
         actual.getClass(), sample);

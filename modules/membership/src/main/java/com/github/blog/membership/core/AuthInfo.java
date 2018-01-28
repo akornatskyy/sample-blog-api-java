@@ -1,4 +1,4 @@
-package com.github.blog.membership.models;
+package com.github.blog.membership.core;
 
 public final class AuthInfo {
   private String userId;

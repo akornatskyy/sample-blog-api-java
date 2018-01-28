@@ -1,17 +1,14 @@
-package com.github.blog.membership.models;
+package com.github.blog.membership.core;
 
-public final class Registration {
-  private String email;
+import com.github.blog.shared.validator.constraints.Length;
+
+public final class SignInRequest {
+
+  @Length(min = 2, max = 20)
   private String username;
+
+  @Length(min = 8, max = 12)
   private String password;
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
 
   public String getUsername() {
     return username;

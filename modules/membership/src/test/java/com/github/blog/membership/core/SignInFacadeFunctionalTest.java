@@ -1,10 +1,5 @@
-package com.github.blog.membership.web;
+package com.github.blog.membership.core;
 
-import com.github.blog.membership.models.AuthInfo;
-import com.github.blog.membership.repository.UserRepository;
-import com.github.blog.membership.service.UserServiceBridge;
-import com.github.blog.membership.web.models.SignInRequest;
-import com.github.blog.membership.web.models.SignInResponse;
 import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
 import org.mockito.Mockito;

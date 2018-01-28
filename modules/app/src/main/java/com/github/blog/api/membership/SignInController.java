@@ -1,9 +1,9 @@
 package com.github.blog.api.membership;
 
 import com.github.blog.membership.Factory;
-import com.github.blog.membership.web.SignInFacade;
-import com.github.blog.membership.web.models.SignInRequest;
-import com.github.blog.membership.web.models.SignInResponse;
+import com.github.blog.membership.core.SignInFacade;
+import com.github.blog.membership.core.SignInRequest;
+import com.github.blog.membership.core.SignInResponse;
 import com.github.blog.shared.service.ErrorState;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

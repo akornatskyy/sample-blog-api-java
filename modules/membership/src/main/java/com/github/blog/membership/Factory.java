@@ -1,11 +1,11 @@
 package com.github.blog.membership;
 
-import com.github.blog.membership.repository.UserRepository;
-import com.github.blog.membership.repository.mock.UserRepositoryImpl;
-import com.github.blog.membership.service.UserService;
-import com.github.blog.membership.service.UserServiceBridge;
-import com.github.blog.membership.web.SignInFacade;
-import com.github.blog.membership.web.SignUpFacade;
+import com.github.blog.membership.core.SignInFacade;
+import com.github.blog.membership.core.SignUpFacade;
+import com.github.blog.membership.core.UserRepository;
+import com.github.blog.membership.core.UserService;
+import com.github.blog.membership.core.UserServiceBridge;
+import com.github.blog.membership.infrastructure.mock.MockUserRepository;
 import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
 
@@ -42,6 +42,6 @@ public final class Factory {
   }
 
   private UserRepository userRepository() {
-    return new UserRepositoryImpl();
+    return new MockUserRepository();
   }
 }

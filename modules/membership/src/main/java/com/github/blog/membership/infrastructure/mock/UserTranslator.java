@@ -1,7 +1,7 @@
-package com.github.blog.membership.repository.mock;
+package com.github.blog.membership.infrastructure.mock;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.github.blog.membership.models.AuthInfo;
+import com.github.blog.membership.core.AuthInfo;
 
 final class UserTranslator {
   private UserTranslator() {

@@ -1,9 +1,9 @@
 package com.github.blog.api.membership;
 
 import com.github.blog.membership.Factory;
-import com.github.blog.membership.web.SignUpFacade;
-import com.github.blog.membership.web.models.SignUpRequest;
-import com.github.blog.membership.web.models.SignUpResponse;
+import com.github.blog.membership.core.SignUpFacade;
+import com.github.blog.membership.core.SignUpRequest;
+import com.github.blog.membership.core.SignUpResponse;
 import com.github.blog.shared.service.ErrorState;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.validation.Valid;
 
 @Controller
 public final class SignUpController {

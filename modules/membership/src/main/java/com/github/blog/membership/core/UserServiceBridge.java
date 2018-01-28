@@ -1,8 +1,5 @@
-package com.github.blog.membership.service;
+package com.github.blog.membership.core;
 
-import com.github.blog.membership.models.AuthInfo;
-import com.github.blog.membership.models.Registration;
-import com.github.blog.membership.repository.UserRepository;
 import com.github.blog.shared.PropertiesLoader;
 import com.github.blog.shared.service.ErrorState;
 

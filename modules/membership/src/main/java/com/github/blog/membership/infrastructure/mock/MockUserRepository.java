@@ -1,22 +1,22 @@
-package com.github.blog.membership.repository.mock;
+package com.github.blog.membership.infrastructure.mock;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.github.blog.membership.models.AuthInfo;
-import com.github.blog.membership.models.Registration;
-import com.github.blog.membership.repository.UserRepository;
+import com.github.blog.membership.core.AuthInfo;
+import com.github.blog.membership.core.Registration;
+import com.github.blog.membership.core.UserRepository;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.stream.StreamSupport;
 
-public class UserRepositoryImpl implements UserRepository {
+public class MockUserRepository implements UserRepository {
 
   private static final ArrayNode USERS;
 
   static {
-    try (InputStream is = UserRepositoryImpl.class.getResourceAsStream(
+    try (InputStream is = MockUserRepository.class.getResourceAsStream(
         "/user-samples.json")) {
       USERS = (ArrayNode) new ObjectMapper().readTree(is).get("users");
     } catch (IOException ex) {

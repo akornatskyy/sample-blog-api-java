@@ -1,8 +1,5 @@
-package com.github.blog.membership.web;
+package com.github.blog.membership.core;
 
-import com.github.blog.membership.service.UserService;
-import com.github.blog.membership.web.models.SignInRequest;
-import com.github.blog.membership.web.models.SignInResponse;
 import com.github.blog.shared.service.ValidationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

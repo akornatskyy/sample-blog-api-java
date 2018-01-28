@@ -1,8 +1,5 @@
-package com.github.blog.membership.service;
+package com.github.blog.membership.core;
 
-import com.github.blog.membership.models.AuthInfo;
-import com.github.blog.membership.models.Registration;
-import com.github.blog.membership.repository.UserRepository;
 import com.github.blog.shared.service.ErrorState;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -11,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class UserServiceBridgeTest {
+public final class UserServiceBridgeTest {
 
   @Mock
   private UserRepository mockUserRepository;

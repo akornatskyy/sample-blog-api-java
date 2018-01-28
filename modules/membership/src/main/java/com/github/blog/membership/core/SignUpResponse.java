@@ -1,4 +1,4 @@
-package com.github.blog.membership.web.models;
+package com.github.blog.membership.core;
 
 public final class SignUpResponse {
   public static final SignUpResponse OK = new SignUpResponse();

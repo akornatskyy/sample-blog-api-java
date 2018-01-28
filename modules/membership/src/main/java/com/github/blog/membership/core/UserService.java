@@ -1,6 +1,4 @@
-package com.github.blog.membership.service;
-
-import com.github.blog.membership.models.Registration;
+package com.github.blog.membership.core;
 
 public interface UserService {
   boolean authenticate(String username, String password);

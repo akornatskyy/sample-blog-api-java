@@ -1,9 +1,6 @@
-package com.github.blog.membership.web.translators;
+package com.github.blog.membership.core;
 
-import com.github.blog.membership.models.Registration;
-import com.github.blog.membership.web.models.SignUpRequest;
-
-public final class RegistrationTranslator {
+final class RegistrationTranslator {
   /**
    * Translates from {@link SignUpRequest} to {@link Registration}.
    */

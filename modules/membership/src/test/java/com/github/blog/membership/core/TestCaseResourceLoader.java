@@ -1,9 +1,9 @@
-package com.github.blog.membership.web;
+package com.github.blog.membership.core;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-class TestCaseResourceLoader {
+final class TestCaseResourceLoader {
   public static <T> T getResourceAsValue(Class<T> cls, String name) {
     try (InputStream stream = TestCaseResourceLoader.class
         .getResourceAsStream(name)) {

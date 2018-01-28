@@ -1,4 +1,4 @@
-package com.github.blog.membership.web;
+package com.github.blog.membership.core;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-class TestCaseObjectMapper {
+final class TestCaseObjectMapper {
   public static final ObjectMapper MAPPER;
 
   static {
