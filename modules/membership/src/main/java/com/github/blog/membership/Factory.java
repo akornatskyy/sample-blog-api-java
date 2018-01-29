@@ -3,8 +3,6 @@ package com.github.blog.membership;
 import com.github.blog.membership.core.SignInFacade;
 import com.github.blog.membership.core.SignUpFacade;
 import com.github.blog.membership.core.UserRepository;
-import com.github.blog.membership.core.UserService;
-import com.github.blog.membership.core.UserServiceBridge;
 import com.github.blog.membership.infrastructure.mock.MockUserRepository;
 import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
@@ -20,8 +18,9 @@ public final class Factory {
    */
   public SignInFacade createSignInFacade(ErrorState errorState) {
     return new SignInFacade(
+        errorState,
         validationService(errorState),
-        userService(errorState));
+        userRepository());
   }
 
   /**
@@ -29,16 +28,13 @@ public final class Factory {
    */
   public SignUpFacade createSignUpFacade(ErrorState errorState) {
     return new SignUpFacade(
+        errorState,
         validationService(errorState),
-        userService(errorState));
+        userRepository());
   }
 
   private ValidationService validationService(ErrorState errorState) {
     return new ValidationService(errorState);
-  }
-
-  private UserService userService(ErrorState errorState) {
-    return new UserServiceBridge(errorState, userRepository());
   }
 
   private UserRepository userRepository() {

@@ -1,61 +1,99 @@
 package com.github.blog.membership.core;
 
-import com.github.blog.membership.core.SignInFacade;
-import com.github.blog.membership.core.UserService;
-import com.github.blog.membership.core.SignInRequest;
-import com.github.blog.membership.core.SignInResponse;
 import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public final class SignInFacadeTest {
 
-  @Mock
-  private UserService mockUserService;
-
-  private SignInRequest request;
+  private ErrorState errorState;
   private ValidationService validationService;
+  private UserRepository mockUserRepository;
   private SignInFacade signInFacade;
 
   @BeforeMethod
   public void setUp() {
-    MockitoAnnotations.initMocks(this);
-    request = new SignInRequest();
-    request.setUsername("demo");
-    request.setPassword("password");
-    validationService = new ValidationService(new ErrorState());
-    signInFacade = new SignInFacade(validationService, mockUserService);
-  }
-
-  @AfterMethod
-  public void tearDown() {
-    Mockito.verify(mockUserService).authenticate(
-        request.getUsername(), request.getPassword());
+    errorState = new ErrorState();
+    validationService = new ValidationService(errorState);
+    mockUserRepository = Mockito.mock(UserRepository.class);
+    signInFacade = new SignInFacade(
+        errorState, validationService, mockUserRepository);
   }
 
   @Test
-  public void testAuthenticateFailed() {
+  public void testValidationFailed() {
+    SignInRequest request = new SignInRequest();
+
     SignInResponse response = signInFacade.authenticate(request);
 
     Assert.assertEquals(response, SignInResponse.ERROR);
-    Mockito.verify(mockUserService).authenticate(
-        request.getUsername(), request.getPassword());
+    Assert.assertTrue(errorState.hasErrors());
+  }
+
+  @Test
+  public void testUserNotFound() {
+    SignInRequest request = sampleRequest();
+    Mockito.when(mockUserRepository.findAuthInfo("user"))
+        .thenReturn(null);
+
+    SignInResponse response = signInFacade.authenticate(request);
+
+    Assert.assertEquals(response, SignInResponse.ERROR);
+    Assert.assertTrue(errorState.hasErrors());
+  }
+
+  @Test
+  public void testWrongPassword() {
+    SignInRequest request = sampleRequest();
+    request.setPassword("invalid");
+    AuthInfo authInfo = new AuthInfo();
+    authInfo.setPassword("password");
+    Mockito.when(mockUserRepository.findAuthInfo("user"))
+        .thenReturn(authInfo);
+
+    SignInResponse response = signInFacade.authenticate(request);
+
+    Assert.assertEquals(response, SignInResponse.ERROR);
+    Assert.assertTrue(errorState.hasErrors());
+  }
+
+  @Test
+  public void testLocked() {
+    SignInRequest request = sampleRequest();
+    AuthInfo authInfo = new AuthInfo();
+    authInfo.setPassword(request.getPassword());
+    authInfo.setLocked(true);
+    Mockito.when(mockUserRepository.findAuthInfo(request.getUsername()))
+        .thenReturn(authInfo);
+
+    SignInResponse response = signInFacade.authenticate(request);
+
+    Assert.assertEquals(response, SignInResponse.ERROR);
+    Assert.assertTrue(errorState.hasErrors());
   }
 
   @Test
   public void testAuthenticate() {
-    Mockito.when(mockUserService.authenticate(
-        request.getUsername(), request.getPassword())).thenReturn(true);
+    SignInRequest request = sampleRequest();
+    AuthInfo authInfo = new AuthInfo();
+    authInfo.setPassword(request.getPassword());
+    authInfo.setLocked(false);
+    Mockito.when(mockUserRepository.findAuthInfo(request.getUsername()))
+        .thenReturn(authInfo);
 
     SignInResponse response = signInFacade.authenticate(request);
 
     Assert.assertNotNull(response);
-    Assert.assertEquals(response.getUsername(), request.getUsername());
+    Assert.assertFalse(errorState.hasErrors());
+  }
+
+  private static SignInRequest sampleRequest() {
+    SignInRequest request = new SignInRequest();
+    request.setUsername("user");
+    request.setPassword("password");
+    return request;
   }
 }

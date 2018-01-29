@@ -34,8 +34,9 @@ public final class SignInFacadeFunctionalTest {
         .thenReturn(authInfo);
     ErrorState errorState = new ErrorState();
     SignInFacade signInFacade = new SignInFacade(
-        new ValidationService(errorState),
-        new UserServiceBridge(errorState, mockUserRepository));
+        errorState,
+        new ValidationService(errorState), mockUserRepository
+    );
 
     SignInResponse signInResponse = signInFacade.authenticate(signInRequest);
 
