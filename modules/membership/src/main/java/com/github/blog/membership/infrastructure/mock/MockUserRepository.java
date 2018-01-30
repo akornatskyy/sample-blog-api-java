@@ -20,7 +20,7 @@ public class MockUserRepository implements UserRepository {
         "/user-samples.json")) {
       USERS = (ArrayNode) new ObjectMapper().readTree(is).get("users");
     } catch (IOException ex) {
-      throw new IllegalStateException("Cannot read user samples.");
+      throw new IllegalStateException("Cannot read user samples.", ex);
     }
   }
 

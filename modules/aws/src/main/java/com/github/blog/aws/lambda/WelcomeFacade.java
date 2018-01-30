@@ -8,11 +8,9 @@ final class WelcomeFacade {
    * Welcome facade processing.
    */
   public Map<String, Object> process(HttpRequest request) {
-    return new HashMap<String, Object>() {
-      {
-        put("message", "Hello World!");
-        put("request", request);
-      }
-    };
+    Map<String, Object> response = new HashMap<>();
+    response.put("message", "Hello World!");
+    response.put("request", request);
+    return response;
   }
 }

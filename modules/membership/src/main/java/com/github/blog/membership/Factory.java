@@ -10,7 +10,16 @@ import com.github.blog.shared.service.ValidationService;
 import java.util.Properties;
 
 public final class Factory {
+  private static final String MOCK_STRATEGY = "mock";
+
+  /**
+   * Constructor.
+   */
   public Factory(Properties properties) {
+    if (!MOCK_STRATEGY.equals(properties.getProperty(
+        "repository.strategy", MOCK_STRATEGY))) {
+      throw new IllegalStateException("Unknown repository strategy.");
+    }
   }
 
   /**

@@ -23,8 +23,8 @@
     <spring.boot.version>1.5.9.RELEASE</spring.boot.version>
     <aws.lambda.java.core.version>1.2.0</aws.lambda.java.core.version>
     <maven.assembly.plugin>3.0.0</maven.assembly.plugin>
-    <maven.clean.plugin>3.0.0</maven.clean.plugin>
     <maven.checkstyle.plugin>2.17</maven.checkstyle.plugin>
+    <maven.clean.plugin>3.0.0</maven.clean.plugin>
     <maven.compiler.plugin>3.6.1</maven.compiler.plugin>
     <maven.dependency.plugin>3.0.1</maven.dependency.plugin>
     <maven.deploy.plugin>2.8.2</maven.deploy.plugin>
@@ -36,6 +36,7 @@
     <maven.pmd.plugin>3.8</maven.pmd.plugin>
     <maven.release.plugin>2.5.3</maven.release.plugin>
     <maven.resources.plugin>3.0.2</maven.resources.plugin>
+    <maven.restrict.imports.plugin>0.8.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.0.0</maven.shade.plugin>
     <maven.site.plugin>3.6</maven.site.plugin>
     <maven.source.plugin>3.0.1</maven.source.plugin>
@@ -257,9 +258,6 @@
         <artifactId>maven-dependency-plugin</artifactId>
       </plugin>
       <plugin>
-        <artifactId>maven-enforcer-plugin</artifactId>
-      </plugin>
-      <plugin>
         <artifactId>maven-failsafe-plugin</artifactId>
       </plugin>
       <plugin>
@@ -294,6 +292,60 @@
             <goals>
               <goal>check</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <targetJdk>${java.version}</targetJdk>
+          <failOnViolation>true</failOnViolation>
+          <linkXRef>false</linkXRef>
+          <printFailingErrors>true</printFailingErrors>
+          <rulesets>
+            <ruleset>${project.basedir}/../../pmd-ruleset.xml</ruleset>
+          </rulesets>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>${maven.enforcer.plugin}</version>
+        <dependencies>
+          <dependency>
+            <groupId>de.skuzzle.enforcer</groupId>
+            <artifactId>restrict-imports-enforcer-rule</artifactId>
+            <version>${maven.restrict.imports.plugin}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>enforce-banned-dependencies</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <bannedDependencies>
+                  <searchTransitive>
+                    true
+                  </searchTransitive>
+                  <excludes>
+                  </excludes>
+                </bannedDependencies>
+                <requireJavaVersion>
+                  <version>${java.version}</version>
+                </requireJavaVersion>
+              </rules>
+              <fail>true</fail>
+            </configuration>
           </execution>
         </executions>
       </plugin>

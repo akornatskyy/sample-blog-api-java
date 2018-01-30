@@ -58,4 +58,37 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>check-logging-imports</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <restrictImports
+                    implementation="de.skuzzle.enforcer.restrictimports.RestrictImports">
+                  <basePackage>
+                    com.github.blog.membership.core.**
+                  </basePackage>
+                  <includeTestCode>true</includeTestCode>
+                  <bannedImports>
+                    <bannedImport>
+                      com.github.blog.membership.infrastructure.**
+                    </bannedImport>
+                  </bannedImports>
+                </restrictImports>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

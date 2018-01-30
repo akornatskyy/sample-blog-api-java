@@ -50,7 +50,8 @@ public final class ApiRequestHandler
     HttpResponse response;
     try {
       response = route(request);
-    } catch (Exception ex) {
+    } catch (
+        @SuppressWarnings("PMD.AvoidCatchingGenericException") Exception ex) {
       LOGGER.error("unhandled error", ex);
       return HttpResponse.INTERNAL_SERVER_ERROR;
     }

@@ -1,5 +1,7 @@
 package com.github.blog.aws.lambda;
 
+import java.util.Locale;
+
 final class Router {
   private Router() {
   }
@@ -10,7 +12,7 @@ final class Router {
       return null;
     }
 
-    path = path.toLowerCase();
+    path = path.toLowerCase(Locale.ENGLISH);
     switch (request.getHttpMethod()) {
       case "GET":
         return matchHttpGet(path);
@@ -22,12 +24,11 @@ final class Router {
   }
 
   private static String matchHttpGet(String path) {
-    switch (path) {
-      case "/welcome":
-        return RouteNames.WELCOME;
-      default:
-        return null;
+    if ("/welcome".equals(path)) {
+      return RouteNames.WELCOME;
     }
+
+    return null;
   }
 
   private static String matchHttpPost(String path) {

@@ -1,6 +1,9 @@
 package com.github.blog.membership.core;
 
 final class RegistrationTranslator {
+  private RegistrationTranslator() {
+  }
+
   /**
    * Translates from {@link SignUpRequest} to {@link Registration}.
    */

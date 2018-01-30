@@ -1,6 +1,5 @@
 package com.github.blog.shared;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -21,7 +20,7 @@ public final class PropertiesLoader {
       }
     } catch (IOException ex) {
       throw new IllegalStateException(
-          String.format("Unable to load %s file.", name));
+          String.format("Unable to load %s file.", name), ex);
     }
 
     return properties;

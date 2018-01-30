@@ -6,6 +6,7 @@ import com.github.blog.shared.service.ValidationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -44,7 +45,7 @@ public final class SignInFacade {
     }
 
     AuthInfo authInfo = userRepository.findAuthInfo(
-        request.getUsername().toLowerCase());
+        request.getUsername().toLowerCase(Locale.ENGLISH));
     if (authInfo == null
         || !Objects.equals(authInfo.getPassword(), request.getPassword())) {
       this.errorState.addError(MESSAGES.getProperty("signInFailed"));

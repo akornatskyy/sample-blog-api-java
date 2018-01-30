@@ -9,6 +9,7 @@ class FactoryProvider {
   private static final String ENVIRONMENT = "env";
   private static final String DEFAULT_ENVIRONMENT = "dev";
 
+  @SuppressWarnings("PMD.AvoidUsingVolatile")
   private static volatile Factory factory;
 
   public Factory from(Map<String, String> context) {
