@@ -7,7 +7,8 @@ import com.github.blog.membership.infrastructure.mock.MockUserRepository;
 import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
 
-import java.util.Properties;
+import java.util.Optional;
+import java.util.function.Function;
 
 public final class Factory {
   private static final String MOCK_STRATEGY = "mock";
@@ -15,9 +16,9 @@ public final class Factory {
   /**
    * Constructor.
    */
-  public Factory(Properties properties) {
-    if (!MOCK_STRATEGY.equals(properties.getProperty(
-        "repository.strategy", MOCK_STRATEGY))) {
+  public Factory(Function<String, String> env) {
+    if (!MOCK_STRATEGY.equals(Optional.ofNullable(
+        env.apply("repository.strategy")).orElse(MOCK_STRATEGY))) {
       throw new IllegalStateException("Unknown repository strategy.");
     }
   }

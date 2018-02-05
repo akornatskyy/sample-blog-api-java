@@ -17,8 +17,9 @@ class FactoryProvider {
       synchronized (FactoryProvider.class) {
         if (factory == null) {
           String name = context.getOrDefault(ENVIRONMENT, DEFAULT_ENVIRONMENT);
+          //factory = new Factory(context::get);
           factory = new Factory(
-              PropertiesLoader.fromResource(name + ".properties"));
+              PropertiesLoader.fromResource(name + ".properties")::getProperty);
         }
       }
     }
