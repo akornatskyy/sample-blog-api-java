@@ -36,10 +36,6 @@
       <artifactId>spring-boot-starter-undertow</artifactId>
     </dependency>
     <dependency>
-      <groupId>javax.inject</groupId>
-      <artifactId>javax.inject</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.github</groupId>
       <artifactId>sample-blog-membership</artifactId>
       <version>${project.version}</version>
