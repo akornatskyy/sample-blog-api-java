@@ -10,18 +10,12 @@
   <packaging>pom</packaging>
 
   <properties>
-    <java.version>1.8</java.version>
-    <testng.version>6.13.1</testng.version>
-    <mockito.version>2.13.0</mockito.version>
-    <javax.inject>1</javax.inject>
-    <slf4j.api.version>1.7.25</slf4j.api.version>
-    <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
-    <validation.api.version>1.1.0.Final</validation.api.version>
-    <hibernate.validator.version>5.2.1.Final</hibernate.validator.version>
-    <javax.el.api.version>2.2.5</javax.el.api.version>
-    <javax.el.version>2.2.6</javax.el.version>
-    <spring.boot.version>1.5.9.RELEASE</spring.boot.version>
     <aws.lambda.java.core.version>1.2.0</aws.lambda.java.core.version>
+    <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
+    <hibernate.validator.version>6.0.7.Final</hibernate.validator.version>
+    <java.version>1.8</java.version>
+    <javax.el.api.version>3.0.1-b04</javax.el.api.version>
+    <javax.el.version>2.2.6</javax.el.version>
     <maven.assembly.plugin>3.0.0</maven.assembly.plugin>
     <maven.checkstyle.plugin>2.17</maven.checkstyle.plugin>
     <maven.clean.plugin>3.0.0</maven.clean.plugin>
@@ -42,7 +36,12 @@
     <maven.source.plugin>3.0.1</maven.source.plugin>
     <maven.surefire.plugin>2.20</maven.surefire.plugin>
     <maven.versions.plugin>2.2</maven.versions.plugin>
+    <mockito.version>2.13.0</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <slf4j.api.version>1.7.25</slf4j.api.version>
+    <spring.boot.version>1.5.9.RELEASE</spring.boot.version>
+    <testng.version>6.14.2</testng.version>
+    <validation.api.version>2.0.1.Final</validation.api.version>
   </properties>
 
   <dependencyManagement>
@@ -53,12 +52,12 @@
         <version>${validation.api.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.hibernate</groupId>
+        <groupId>org.hibernate.validator</groupId>
         <artifactId>hibernate-validator</artifactId>
         <version>${hibernate.validator.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.hibernate</groupId>
+        <groupId>org.hibernate.validator</groupId>
         <artifactId>hibernate-validator-annotation-processor</artifactId>
         <version>${hibernate.validator.version}</version>
       </dependency>
@@ -71,11 +70,6 @@
         <groupId>org.glassfish.web</groupId>
         <artifactId>javax.el</artifactId>
         <version>${javax.el.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.inject</groupId>
-        <artifactId>javax.inject</artifactId>
-        <version>${javax.inject}</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
