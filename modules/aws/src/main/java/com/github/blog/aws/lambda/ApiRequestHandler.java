@@ -5,8 +5,12 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.blog.membership.Factory;
+import com.github.blog.membership.core.SignInFacade;
 import com.github.blog.membership.core.SignInRequest;
+import com.github.blog.membership.core.SignInResponse;
+import com.github.blog.membership.core.SignUpFacade;
 import com.github.blog.membership.core.SignUpRequest;
+import com.github.blog.membership.core.SignUpResponse;
 import com.github.blog.shared.service.ErrorState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +23,11 @@ public final class ApiRequestHandler
   private static final Logger LOGGER = LoggerFactory.getLogger(
       ApiRequestHandler.class);
 
+  private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper()
+      .setSerializationInclusion(JsonInclude.Include.NON_NULL);
+
   private static final int SC_BAD_REQUEST = 400;
 
-  private final ObjectMapper mapper;
   private final FactoryProvider factoryProvider;
 
   public ApiRequestHandler() {
@@ -29,8 +35,6 @@ public final class ApiRequestHandler
   }
 
   ApiRequestHandler(FactoryProvider factoryProvider) {
-    mapper = new ObjectMapper();
-    mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     this.factoryProvider = factoryProvider;
   }
 
@@ -40,69 +44,104 @@ public final class ApiRequestHandler
       LOGGER.info("handling request");
     }
 
-    String routeName = Router.match(request);
-    if (routeName == null) {
-      return HttpResponse.NOT_FOUND;
-    }
-
-    request.setRouteName(routeName);
-
-    HttpResponse response;
     try {
-      response = route(request);
+      return route(request);
     } catch (
         @SuppressWarnings("PMD.AvoidCatchingGenericException") Exception ex) {
       LOGGER.error("unhandled error", ex);
       return HttpResponse.INTERNAL_SERVER_ERROR;
     }
-
-    return response;
   }
 
   private HttpResponse route(HttpRequest request) throws IOException {
-    ErrorState errorState = new ErrorState();
-    Factory factory = factoryProvider.from(request.getStageVariables());
-    Object result;
-    switch (request.getRouteName()) {
+    String routeName = Router.match(request);
+    if (routeName == null) {
+      return HttpResponse.NOT_FOUND;
+    }
+
+    switch (routeName) {
       case RouteNames.WELCOME:
-        result = new WelcomeFacade().process(request);
-        break;
+        return httpOk(new WelcomeFacade().process(request));
       case RouteNames.SIGNIN:
-        result = factory.createSignInFacade(errorState)
-            .authenticate(
-                mapper.readValue(request.getBody(), SignInRequest.class));
-        break;
+        return signin(request);
       case RouteNames.SIGNUP:
-        result = factory.createSignUpFacade(errorState)
-            .createAccount(
-                mapper.readValue(request.getBody(), SignUpRequest.class));
-        break;
+        return signup(request);
       default:
-        throw new IllegalStateException(
-            "Unknown route name: " + request.getRouteName());
+        return HttpResponse.NOT_FOUND;
+    }
+  }
+
+  private HttpResponse signin(HttpRequest request) throws IOException {
+    String body = request.getBody();
+    if (body == null) {
+      return httpNoBody();
     }
 
+    Factory factory = factoryProvider.from(request.getStageVariables());
+    ErrorState errorState = new ErrorState();
+    SignInFacade facade = factory.createSignInFacade(errorState);
+
+    SignInResponse response = facade.authenticate(
+        OBJECT_MAPPER.readValue(body, SignInRequest.class));
+
+    if (response == SignInResponse.ERROR) {
+      return httpBadRequest(errorState);
+    }
+
+    return httpOk(response);
+  }
+
+  private HttpResponse signup(HttpRequest request) throws IOException {
+    String body = request.getBody();
+    if (body == null) {
+      return httpNoBody();
+    }
+
+    Factory factory = factoryProvider.from(request.getStageVariables());
+    ErrorState errorState = new ErrorState();
+    SignUpFacade facade = factory.createSignUpFacade(errorState);
+
+    SignUpResponse response = facade.createAccount(
+        OBJECT_MAPPER.readValue(request.getBody(), SignUpRequest.class));
+
+    if (response == SignUpResponse.ERROR) {
+      return httpBadRequest(errorState);
+    }
+
+    return httpOk(response);
+  }
+
+  private static HttpResponse httpOk(Object result) throws IOException {
     HttpResponse response = new HttpResponse();
-    if (errorState.hasErrors()) {
-      response.setStatusCode(SC_BAD_REQUEST);
-      result = errorState.getErrors();
-    }
-
     response.setBody(render(result));
     return response;
   }
 
-  private String render(Object value) {
+  private static HttpResponse httpNoBody() throws IOException {
+    return httpBadRequest("The HTTP message is not readable.");
+  }
+
+  private static HttpResponse httpBadRequest(String message)
+      throws IOException {
+    ErrorState errorState = new ErrorState();
+    errorState.addError(message);
+    return httpBadRequest(errorState);
+  }
+
+  private static HttpResponse httpBadRequest(ErrorState errorState)
+      throws IOException {
+    HttpResponse response = new HttpResponse();
+    response.setStatusCode(SC_BAD_REQUEST);
+    response.setBody(render(errorState));
+    return response;
+  }
+
+  private static String render(Object value) throws IOException {
     if (LOGGER.isInfoEnabled()) {
       LOGGER.info("rendering response");
     }
 
-    String content;
-    try {
-      content = mapper.writeValueAsString(value);
-    } catch (IOException e) {
-      throw new IllegalStateException(e);
-    }
+    String content = OBJECT_MAPPER.writeValueAsString(value);
 
     if (LOGGER.isInfoEnabled()) {
       LOGGER.info(String.format("finished %.3f KB", content.length() / 1024F));
