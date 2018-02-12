@@ -60,17 +60,21 @@ Delete stacks:
 
 # curl
 
+> In case of AWS lambda deployment use the host name printed during stack 
+> update, for example:
+> https://zy6ymiy7yf.execute-api.eu-west-1.amazonaws.com/v1/signin
+
 Validation error:
 
     $ curl -si -H 'Content-Type: application/json' \
         -X POST -d '{}' \
         http://localhost:8080/api/v1/signin
-
+    
     HTTP/1.1 400
     Content-Type: application/json;charset=UTF-8
     Transfer-Encoding: chunked
     Connection: close
-
+    
     {"password":["Required field cannot be left blank."],
     "username":["Required field cannot be left blank."]}
 
@@ -79,12 +83,12 @@ General error:
     $ curl -si -H 'Content-Type: application/json' \
         -X POST -d '{"username":"js", "password":"password"}' \
         http://localhost:8080/api/v1/signin
-
+    
     HTTP/1.1 400
     Content-Type: application/json;charset=UTF-8
     Transfer-Encoding: chunked
     Connection: close
-
+    
     {"__ERROR__":["The account is locked. Contact system administrator, please."]}
 
 Valid:
@@ -92,11 +96,11 @@ Valid:
     $ curl -si -H 'Content-Type: application/json' \
     -X POST -d '{"username":"demo", "password":"password"}' \
     http://localhost:8080/api/v1/signin
-
+    
     HTTP/1.1 200
     Content-Type: application/json;charset=UTF-8
     Transfer-Encoding: chunked
-
+    
     {"username":"demo"}
 
 ## Tools
