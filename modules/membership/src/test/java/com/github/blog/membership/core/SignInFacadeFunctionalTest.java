@@ -23,10 +23,10 @@ public final class SignInFacadeFunctionalTest {
 
   @Test(dataProvider = "samples")
   public void testAuthenticate(int sample, String description) {
-    SignInRequest signInRequest = TestCaseResourceLoader.getResourceAsValue(
+    SignInRequest signInRequest = JsonResource.getResourceAsValue(
         SignInRequest.class,
         formatResourceName(sample, "SignInRequest"));
-    AuthInfo authInfo = TestCaseResourceLoader.getResourceAsValue(
+    AuthInfo authInfo = JsonResource.getResourceAsValue(
         AuthInfo.class,
         formatResourceName(sample, "AuthInfo"));
     UserRepository mockUserRepository = Mockito.mock(UserRepository.class);
@@ -41,10 +41,10 @@ public final class SignInFacadeFunctionalTest {
     SignInResponse signInResponse = signInFacade.authenticate(signInRequest);
 
     Assert.assertNotNull(signInResponse, description);
-    AssertHelper.assertSampleEquals(
+    AssertResource.assertEquals(
         signInResponse,
         formatResourceName(sample, "SignInResponse"));
-    AssertHelper.assertSampleEquals(
+    AssertResource.assertEquals(
         errorState,
         formatResourceName(sample, "ErrorState"));
   }
