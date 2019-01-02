@@ -11,12 +11,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.stream.StreamSupport;
 
-public class MockUserRepository implements UserRepository {
+public final class UserMockRepository implements UserRepository {
 
   private static final ArrayNode USERS;
 
   static {
-    try (InputStream is = MockUserRepository.class.getResourceAsStream(
+    try (InputStream is = UserMockRepository.class.getResourceAsStream(
         "/user-samples.json")) {
       USERS = (ArrayNode) new ObjectMapper().readTree(is).get("users");
     } catch (IOException ex) {

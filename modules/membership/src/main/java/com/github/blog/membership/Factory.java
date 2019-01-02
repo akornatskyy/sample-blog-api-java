@@ -3,7 +3,7 @@ package com.github.blog.membership;
 import com.github.blog.membership.core.SignInFacade;
 import com.github.blog.membership.core.SignUpFacade;
 import com.github.blog.membership.core.UserRepository;
-import com.github.blog.membership.infrastructure.mock.MockUserRepository;
+import com.github.blog.membership.infrastructure.mock.UserMockRepository;
 import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
 
@@ -48,6 +48,6 @@ public final class Factory {
   }
 
   private UserRepository userRepository() {
-    return new MockUserRepository();
+    return new UserMockRepository();
   }
 }
