@@ -298,7 +298,7 @@
           <linkXRef>false</linkXRef>
           <printFailingErrors>true</printFailingErrors>
           <rulesets>
-            <ruleset>${project.basedir}/../../pmd-ruleset.xml</ruleset>
+            <ruleset>${project.basedir}/../pmd-ruleset.xml</ruleset>
           </rulesets>
         </configuration>
         <executions>
