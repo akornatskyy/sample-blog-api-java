@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github</groupId>
-  <artifactId>sample-blog-api</artifactId>
+  <artifactId>sample-blog-api-java</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -25,11 +25,11 @@
 
   <modules>
     <module>parent</module>
-    <module>shared</module>
-    <module>membership</module>
-    <module>posts</module>
-    <module>app</module>
-    <module>aws</module>
+    <module>sample-blog-shared</module>
+    <module>sample-blog-membership</module>
+    <module>sample-blog-posts</module>
+    <module>sample-blog-app</module>
+    <module>sample-blog-aws</module>
   </modules>
 
 </project>
