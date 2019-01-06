@@ -24,7 +24,7 @@ public final class SignUpController {
   /**
    * Responds to HTTP POST signup request.
    */
-  @RequestMapping(value = "/api/v1/signup", method = RequestMethod.POST)
+  @RequestMapping(value = "/signup", method = RequestMethod.POST)
   public ResponseEntity<?> post(@RequestBody SignUpRequest request) {
 
     ErrorState errorState = new ErrorState();

@@ -24,7 +24,7 @@ public final class SignInController {
   /**
    * Responds to HTTP POST signin request.
    */
-  @RequestMapping(value = "/api/v1/signin", method = RequestMethod.POST)
+  @RequestMapping(value = "/signin", method = RequestMethod.POST)
   public ResponseEntity<?> post(@RequestBody SignInRequest request) {
 
     ErrorState errorState = new ErrorState();
