@@ -3,24 +3,22 @@ package com.github.blog.shared.validator.constraints;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+@SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.NPathComplexity"})
 public final class LengthValidator
     implements ConstraintValidator<Length, CharSequence> {
 
-  private int min;
-  private int max;
-  private String message;
-  private String messageRequired;
+  private Length length;
 
   @Override
-  public void initialize(Length constraintAnnotation) {
-    min = constraintAnnotation.min();
+  public void initialize(Length length) {
+    int min = length.min();
 
     if (min < 0) {
       throw new IllegalArgumentException(
           "The min parameter cannot be negative.");
     }
 
-    max = constraintAnnotation.max();
+    int max = length.max();
     if (max < 0) {
       throw new IllegalArgumentException(
           "The max parameter cannot be negative.");
@@ -31,24 +29,45 @@ public final class LengthValidator
           "The max parameter cannot be less than min parameter.");
     }
 
-    message = constraintAnnotation.message();
-    messageRequired = constraintAnnotation.messageRequired();
+    this.length = length;
   }
 
   @Override
   public boolean isValid(
       CharSequence value, ConstraintValidatorContext context) {
 
-    if (value == null || value.length() == 0) {
-      context.buildConstraintViolationWithTemplate(messageRequired)
-          .addConstraintViolation()
-          .disableDefaultConstraintViolation();
-      return false;
+    if (length.min() > 0) {
+      if (value == null || value.length() == 0) {
+        context.buildConstraintViolationWithTemplate(length.messageRequired())
+            .addConstraintViolation()
+            .disableDefaultConstraintViolation();
+        return false;
+      }
+
+      if (length.min() == length.max() && value.length() != length.min()) {
+        context.buildConstraintViolationWithTemplate(length.messageExact())
+            .addConstraintViolation()
+            .disableDefaultConstraintViolation();
+        return false;
+      }
+
+      if (length.max() == Integer.MAX_VALUE && value.length() < length.min()) {
+        context.buildConstraintViolationWithTemplate(length.messageMinLength())
+            .addConstraintViolation()
+            .disableDefaultConstraintViolation();
+        return false;
+      }
+
+      if (value.length() < length.min() || value.length() > length.max()) {
+        context.buildConstraintViolationWithTemplate(length.message())
+            .addConstraintViolation()
+            .disableDefaultConstraintViolation();
+        return false;
+      }
     }
 
-    int length = value.length();
-    if (length < min || length > max) {
-      context.buildConstraintViolationWithTemplate(message)
+    if (value != null && value.length() > length.max()) {
+      context.buildConstraintViolationWithTemplate(length.messageMaxLength())
           .addConstraintViolation()
           .disableDefaultConstraintViolation();
       return false;

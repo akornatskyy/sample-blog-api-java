@@ -12,17 +12,6 @@ import javax.validation.Payload;
          ElementType.CONSTRUCTOR, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Length {
-  /**
-   * Returns a validation message.
-   */
-  String message() default
-      "{com.github.blog.shared.validator.constraints.Length.message}";
-
-  /**
-   * Returns a validation message for required value.
-   */
-  String messageRequired() default
-      "{com.github.blog.shared.validator.constraints.Length.messageRequired}";
 
   /**
    * The length must be higher or equal to.
@@ -33,6 +22,36 @@ public @interface Length {
    * The length must be less or equal to.
    */
   int max() default Integer.MAX_VALUE;
+
+  /**
+   * Returns a validation message for range value.
+   */
+  String message() default
+      "{com.github.blog.shared.validator.constraints.length.range}";
+
+  /**
+   * Returns a validation message for required value.
+   */
+  String messageRequired() default
+      "{com.github.blog.shared.validator.constraints.required}";
+
+  /**
+   * Returns a validation message for min length.
+   */
+  String messageMinLength() default
+      "{com.github.blog.shared.validator.constraints.length.min}";
+
+  /**
+   * Returns a validation message for max length.
+   */
+  String messageMaxLength() default
+      "{com.github.blog.shared.validator.constraints.length.max}";
+
+  /**
+   * Returns a validation message for exact length.
+   */
+  String messageExact() default
+      "{com.github.blog.shared.validator.constraints.length.exact}";
 
   /**
    * Groups.
