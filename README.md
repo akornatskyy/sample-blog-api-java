@@ -15,7 +15,7 @@ quality criteria.
 
 Run application as an executable jar.
 
-    java -jar modules/app/target/sample-blog-app-1.0-SNAPSHOT.jar
+    java -jar sample-blog-app/target/sample-blog-app-1.0-SNAPSHOT.jar
 
 ## Docker
 
@@ -35,7 +35,7 @@ Deploy `user` Cloud Formation stack (optional):
 
 Upload jar file to S3 bucket:
 
-    aws s3 cp modules/aws/target/sample-blog-aws-1.0-SNAPSHOT.jar \
+    aws s3 cp sample-blog-aws/target/sample-blog-aws-1.0-SNAPSHOT.jar \
       s3://$S3_JAR_BUCKET/
 
 Switch to just created user credentials (see `~/.aws/credentials`)
@@ -68,7 +68,7 @@ Validation error:
 
     $ curl -si -H 'Content-Type: application/json' \
         -X POST -d '{}' \
-        http://localhost:8080/api/v1/signin
+        http://localhost:8080/signin
     
     HTTP/1.1 400
     Content-Type: application/json;charset=UTF-8
@@ -82,7 +82,7 @@ General error:
 
     $ curl -si -H 'Content-Type: application/json' \
         -X POST -d '{"username":"js", "password":"password"}' \
-        http://localhost:8080/api/v1/signin
+        http://localhost:8080/signin
     
     HTTP/1.1 400
     Content-Type: application/json;charset=UTF-8
@@ -95,7 +95,7 @@ Valid:
 
     $ curl -si -H 'Content-Type: application/json' \
     -X POST -d '{"username":"demo", "password":"password"}' \
-    http://localhost:8080/api/v1/signin
+    http://localhost:8080/signin
     
     HTTP/1.1 200
     Content-Type: application/json;charset=UTF-8
