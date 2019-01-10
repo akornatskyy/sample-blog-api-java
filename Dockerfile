@@ -16,7 +16,7 @@ RUN set -ex \
     && cd src \
     && mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -T"$(getconf _NPROCESSORS_ONLN)" verify \
     && mkdir -p /app \
-    && mv /src/modules/app/target/sample-blog-app-${APP_VERSION}.jar /app \
+    && mv /src/sample-blog-app/target/sample-blog-app-${APP_VERSION}.jar /app \
     \
     && rm -rf /src ~/.m2 \
     && apk del .build-deps
