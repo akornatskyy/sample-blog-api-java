@@ -22,7 +22,7 @@ echo "packaging jar file"
 mvn -q -T4 -DskipTests clean package
 
 echo "uploading..."
-aws s3 cp modules/aws/target/${JAR_FILE} s3://${S3_JAR_BUCKET}
+aws s3 cp sample-blog-aws/target/${JAR_FILE} s3://${S3_JAR_BUCKET}
 
 echo "updating code"
 aws lambda update-function-code --function-name ${STACK_NAME}-request-handler \
