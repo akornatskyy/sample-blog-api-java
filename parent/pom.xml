@@ -14,7 +14,7 @@
     <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
     <hibernate.validator.version>6.0.7.Final</hibernate.validator.version>
     <java.version>1.8</java.version>
-    <javax.el.api.version>3.0.1-b04</javax.el.api.version>
+    <javax.el.api.version>3.0.1-b06</javax.el.api.version>
     <javax.el.version>2.2.6</javax.el.version>
     <maven.assembly.plugin>3.0.0</maven.assembly.plugin>
     <maven.checkstyle.plugin>2.17</maven.checkstyle.plugin>
@@ -29,18 +29,18 @@
     <maven.jar.plugin>3.0.2</maven.jar.plugin>
     <maven.pmd.plugin>3.8</maven.pmd.plugin>
     <maven.release.plugin>2.5.3</maven.release.plugin>
-    <maven.resources.plugin>3.0.2</maven.resources.plugin>
-    <maven.restrict.imports.plugin>0.8.0</maven.restrict.imports.plugin>
-    <maven.shade.plugin>3.0.0</maven.shade.plugin>
-    <maven.site.plugin>3.6</maven.site.plugin>
+    <maven.resources.plugin>3.1.0</maven.resources.plugin>
+    <maven.restrict.imports.plugin>0.17.0</maven.restrict.imports.plugin>
+    <maven.shade.plugin>3.2.1</maven.shade.plugin>
+    <maven.site.plugin>3.7.1</maven.site.plugin>
     <maven.source.plugin>3.0.1</maven.source.plugin>
-    <maven.surefire.plugin>2.20</maven.surefire.plugin>
+    <maven.surefire.plugin>3.0.0-M3</maven.surefire.plugin>
     <maven.versions.plugin>2.2</maven.versions.plugin>
-    <mockito.version>2.13.0</mockito.version>
+    <mockito.version>2.24.5</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <slf4j.api.version>1.7.25</slf4j.api.version>
-    <spring.boot.version>1.5.9.RELEASE</spring.boot.version>
-    <testng.version>6.14.3</testng.version>
+    <slf4j.api.version>1.7.26</slf4j.api.version>
+    <spring.boot.version>1.5.19.RELEASE</spring.boot.version>
+    <testng.version>7.0.0-beta3</testng.version>
     <validation.api.version>2.0.1.Final</validation.api.version>
   </properties>
 
