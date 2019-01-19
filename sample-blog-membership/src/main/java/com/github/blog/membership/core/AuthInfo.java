@@ -3,7 +3,7 @@ package com.github.blog.membership.core;
 public final class AuthInfo {
   private String userId;
   private String password;
-  private boolean isLocked;
+  private boolean locked;
 
   public String getUserId() {
     return userId;
@@ -22,10 +22,10 @@ public final class AuthInfo {
   }
 
   public boolean isLocked() {
-    return isLocked;
+    return locked;
   }
 
   public void setLocked(boolean locked) {
-    isLocked = locked;
+    this.locked = locked;
   }
 }

@@ -19,7 +19,7 @@
     <maven.checkstyle.plugin>3.0.0</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.8.0</maven.compiler.plugin>
     <maven.enforcer.plugin>3.0.0-M2</maven.enforcer.plugin>
-    <maven.pmd.plugin>3.8</maven.pmd.plugin>
+    <maven.pmd.plugin>3.11.0</maven.pmd.plugin>
     <maven.resources.plugin>3.1.0</maven.resources.plugin>
     <maven.restrict.imports.plugin>0.17.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.2.1</maven.shade.plugin>

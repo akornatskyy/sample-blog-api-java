@@ -13,7 +13,7 @@ public final class PropertiesLoader {
    */
   public static Properties fromResource(String name) {
     Properties properties = new Properties();
-    try (InputStream in = PropertiesLoader.class.getClassLoader()
+    try (InputStream in = Thread.currentThread().getContextClassLoader()
         .getResourceAsStream(name)) {
       if (in != null) {
         properties.load(in);

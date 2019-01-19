@@ -34,6 +34,7 @@ public final class ApiRequestHandler
     this(new FactoryProvider());
   }
 
+  @SuppressWarnings("PMD.CommentDefaultAccessModifier")
   ApiRequestHandler(FactoryProvider factoryProvider) {
     this.factoryProvider = factoryProvider;
   }
