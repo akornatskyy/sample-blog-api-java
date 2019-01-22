@@ -28,7 +28,7 @@ public class MembershipController {
    * Responds to HTTP POST signin request.
    */
   @RequestMapping(value = "/signin", method = RequestMethod.POST)
-  public ResponseEntity<?> post(@RequestBody SignInRequest request) {
+  public ResponseEntity<?> signIn(@RequestBody SignInRequest request) {
 
     ErrorState errorState = new ErrorState();
     SignInFacade facade = factory.createSignInFacade(errorState);
@@ -46,7 +46,7 @@ public class MembershipController {
    * Responds to HTTP POST signup request.
    */
   @RequestMapping(value = "/signup", method = RequestMethod.POST)
-  public ResponseEntity<?> post(@RequestBody SignUpRequest request) {
+  public ResponseEntity<?> signUp(@RequestBody SignUpRequest request) {
 
     ErrorState errorState = new ErrorState();
     SignUpFacade facade = factory.createSignUpFacade(errorState);
