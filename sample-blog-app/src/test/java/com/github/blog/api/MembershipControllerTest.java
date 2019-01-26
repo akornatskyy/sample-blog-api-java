@@ -35,7 +35,7 @@ public class MembershipControllerTest {
 
     ResponseEntity<?> entity = controller.signIn(request);
 
-    assertOK(entity, response);
+    assertHttpStatus(entity, response, HttpStatus.OK);
   }
 
   @Test
@@ -49,7 +49,8 @@ public class MembershipControllerTest {
 
     ResponseEntity<?> entity = controller.signIn(request);
 
-    assertBadRequest(entity);
+    assertHttpStatus(
+        entity, errorStateCaptor.getValue(), HttpStatus.BAD_REQUEST);
   }
 
   @Test
@@ -64,7 +65,7 @@ public class MembershipControllerTest {
 
     ResponseEntity<?> entity = controller.signUp(request);
 
-    assertOK(entity, response);
+    assertHttpStatus(entity, response, HttpStatus.OK);
   }
 
   @Test
@@ -78,18 +79,14 @@ public class MembershipControllerTest {
 
     ResponseEntity<?> entity = controller.signUp(request);
 
-    assertBadRequest(entity);
+    assertHttpStatus(
+        entity, errorStateCaptor.getValue(), HttpStatus.BAD_REQUEST);
   }
 
-  private static <T> void assertOK(ResponseEntity<?> entity, T response) {
+  private static <T> void assertHttpStatus(
+      ResponseEntity<?> entity, T response, HttpStatus status) {
     Assert.assertNotNull(entity);
-    Assert.assertEquals(entity.getStatusCode(), HttpStatus.OK);
+    Assert.assertEquals(entity.getStatusCode(), status);
     Assert.assertEquals(entity.getBody(), response);
-  }
-
-  private void assertBadRequest(ResponseEntity<?> entity) {
-    Assert.assertNotNull(entity);
-    Assert.assertEquals(entity.getStatusCode(), HttpStatus.BAD_REQUEST);
-    Assert.assertEquals(entity.getBody(), errorStateCaptor.getValue());
   }
 }
