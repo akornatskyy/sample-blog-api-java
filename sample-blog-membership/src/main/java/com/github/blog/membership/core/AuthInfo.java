@@ -1,9 +1,15 @@
 package com.github.blog.membership.core;
 
+import java.util.Objects;
+
 public final class AuthInfo {
   private String userId;
   private String password;
   private boolean locked;
+
+  public boolean isSamePassword(String password) {
+    return Objects.equals(this.password, password);
+  }
 
   public String getUserId() {
     return userId;
