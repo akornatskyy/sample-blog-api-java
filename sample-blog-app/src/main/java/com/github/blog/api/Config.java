@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 @Configuration
-public class Config implements WebMvcConfigurer {
+class Config implements WebMvcConfigurer {
 
   @Bean
   public Factory factory(Environment environment) {

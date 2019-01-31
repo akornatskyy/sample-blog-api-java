@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public final class ErrorHandler {
+final class ErrorHandler {
 
   /**
    * Handles validation errors and translates to response.
