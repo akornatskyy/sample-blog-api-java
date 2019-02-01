@@ -1,0 +1,15 @@
+server:
+  compression:
+    enabled: true
+    mime-types: application/json
+spring:
+  main:
+    banner-mode: 'off'
+logging:
+  level:
+    org.springframework: WARN
+    org.xnio: WARN
+    io.undertow: WARN
+    org.hibernate: WARN
+repository:
+  strategy: mock
