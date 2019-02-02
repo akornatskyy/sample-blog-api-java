@@ -5,6 +5,10 @@ server:
 spring:
   main:
     banner-mode: 'off'
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
 logging:
   level:
     org.springframework: WARN
