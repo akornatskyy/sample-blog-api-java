@@ -4,6 +4,7 @@ import com.github.blog.shared.service.ErrorState;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -57,6 +58,25 @@ final class ErrorHandler {
     ErrorState errorState = new ErrorState();
     errorState.addError(
         "Oops! Code 404. Sorry, we can't find that resource. "
+        + "Unfortunately the resource you are looking for may have been "
+        + "removed, had its name changed, under construction or is temporarily "
+        + "unavailable. Try checking the web address for typos, please. "
+        + "We apologize for the inconvenience.");
+    return errorState;
+  }
+
+  /**
+   * Handles method not allowed response.
+   */
+  @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+  @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+  @ResponseBody
+  public ErrorState handleHttpRequestMethodNotSupportedException(
+      HttpRequestMethodNotSupportedException ex) {
+
+    ErrorState errorState = new ErrorState();
+    errorState.addError(
+        "Oops! Code 405. Sorry, the HTTP method is not allowed. "
         + "Unfortunately the resource you are looking for may have been "
         + "removed, had its name changed, under construction or is temporarily "
         + "unavailable. Try checking the web address for typos, please. "
