@@ -83,4 +83,23 @@ final class ErrorHandler {
         + "We apologize for the inconvenience.");
     return errorState;
   }
+
+  /**
+   * Handles illegal state response.
+   */
+  @ExceptionHandler(IllegalStateException.class)
+  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+  @ResponseBody
+  public ErrorState handleIllegalStateException(
+      IllegalStateException ex) {
+
+    ErrorState errorState = new ErrorState();
+    errorState.addError(
+        "Oops! Code 500. Sorry, we can not process your request. "
+        + "The web server encountered an unexpected condition that "
+        + "prevented it from fulfilling the request by the client for "
+        + "access to the requested URL. "
+        + "We apologize for the inconvenience.");
+    return errorState;
+  }
 }
