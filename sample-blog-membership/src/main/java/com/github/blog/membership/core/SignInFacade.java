@@ -45,7 +45,7 @@ public final class SignInFacade {
 
     AuthInfo authInfo = userRepository.findAuthInfo(
         request.getUsername().toLowerCase(Locale.ENGLISH));
-    if (authInfo == null || authInfo.isSamePassword(request.getPassword())) {
+    if (authInfo == null || !authInfo.isSamePassword(request.getPassword())) {
       this.errorState.addError(MESSAGES.getProperty("signInFailed"));
       return SignInResponse.ERROR;
     }
