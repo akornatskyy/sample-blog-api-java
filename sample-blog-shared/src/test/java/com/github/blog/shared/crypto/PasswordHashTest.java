@@ -4,21 +4,12 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
 
 public class PasswordHashTest {
 
-  private final PasswordHash passwordHash;
-
-  public PasswordHashTest() {
-    try {
-      passwordHash = new PasswordHash("PBKDF2WithHmacSHA1", 65536, 128);
-    } catch (NoSuchAlgorithmException ex) {
-      throw new IllegalStateException(ex);
-    }
-  }
+  private final PasswordHash passwordHash = new PasswordHash(
+      "PBKDF2WithHmacSHA1", 65536, 128);
 
   @DataProvider
   public Object[][] samples() {
@@ -37,8 +28,7 @@ public class PasswordHashTest {
 
   @Test(dataProvider = "samples")
   public void testCompareHashAndPassword(
-      String hash, String password, boolean expected)
-      throws InvalidKeySpecException {
+      String hash, String password, boolean expected) {
 
     boolean ok = passwordHash.compareHashAndPassword(
         Base64.getDecoder().decode(hash), password.toCharArray());

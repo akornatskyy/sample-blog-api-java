@@ -18,27 +18,35 @@ public final class PasswordHash {
   /**
    * Constructs password hash.
    */
-  public PasswordHash(String algorithm, int iterationCount, int keyLength)
-      throws NoSuchAlgorithmException {
-
+  public PasswordHash(String algorithm, int iterationCount, int keyLength) {
     this.iterationCount = iterationCount;
     this.keyLength = keyLength;
     saltLength = keyLength / 8;
-    secretKeyFactory = SecretKeyFactory.getInstance(algorithm);
+    try {
+      secretKeyFactory = SecretKeyFactory.getInstance(algorithm);
+    } catch (NoSuchAlgorithmException ex) {
+      throw new IllegalStateException(ex);
+    }
   }
 
   /**
    * Generate a hash from password.
    */
   @SuppressWarnings("PMD.UseVarargs")
-  public byte[] generateFromPassword(char[] password)
-      throws InvalidKeySpecException {
+  public byte[] generateFromPassword(char[] password) {
 
     SecureRandom random = new SecureRandom();
     byte[] salt = new byte[saltLength];
     random.nextBytes(salt);
+
     KeySpec spec = new PBEKeySpec(password, salt, iterationCount, keyLength);
-    byte[] secret = secretKeyFactory.generateSecret(spec).getEncoded();
+    byte[] secret;
+    try {
+      secret = secretKeyFactory.generateSecret(spec).getEncoded();
+    } catch (InvalidKeySpecException ex) {
+      throw new IllegalStateException(ex);
+    }
+
     byte[] hashed = new byte[salt.length + secret.length];
     System.arraycopy(salt, 0, hashed, 0, salt.length);
     System.arraycopy(secret, 0, hashed, salt.length, secret.length);
@@ -49,8 +57,7 @@ public final class PasswordHash {
    * Compare hash and password.
    */
   @SuppressWarnings("PMD.UseVarargs")
-  public boolean compareHashAndPassword(byte[] hashed, char[] password)
-      throws InvalidKeySpecException {
+  public boolean compareHashAndPassword(byte[] hashed, char[] password) {
 
     if (hashed == null || password == null || hashed.length != 2 * saltLength) {
       return false;
@@ -58,9 +65,16 @@ public final class PasswordHash {
 
     byte[] buffer = new byte[saltLength];
     System.arraycopy(hashed, 0, buffer, 0, buffer.length);
+
     KeySpec spec = new PBEKeySpec(password, buffer, iterationCount, keyLength);
-    byte[] hash = secretKeyFactory.generateSecret(spec).getEncoded();
+    byte[] secret;
+    try {
+      secret = secretKeyFactory.generateSecret(spec).getEncoded();
+    } catch (InvalidKeySpecException ex) {
+      throw new IllegalStateException(ex);
+    }
+
     System.arraycopy(hashed, saltLength, buffer, 0, buffer.length);
-    return Arrays.equals(hash, buffer);
+    return Arrays.equals(secret, buffer);
   }
 }
