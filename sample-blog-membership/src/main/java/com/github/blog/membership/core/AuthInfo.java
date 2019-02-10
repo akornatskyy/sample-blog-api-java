@@ -1,14 +1,16 @@
 package com.github.blog.membership.core;
 
-import java.util.Objects;
-
 public final class AuthInfo {
+
   private String userId;
-  private String password;
+  private String passwordHash;
   private boolean locked;
 
+  /**
+   * Checks if password is the same as password hash.
+   */
   public boolean isSamePassword(String password) {
-    return Objects.equals(this.password, password);
+    return PasswordHashHelper.isSamePassword(passwordHash, password);
   }
 
   public String getUserId() {
@@ -19,12 +21,12 @@ public final class AuthInfo {
     this.userId = userId;
   }
 
-  public String getPassword() {
-    return password;
+  public String getPasswordHash() {
+    return passwordHash;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setPasswordHash(String passwordHash) {
+    this.passwordHash = passwordHash;
   }
 
   public boolean isLocked() {

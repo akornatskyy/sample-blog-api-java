@@ -10,7 +10,7 @@ final class UserTranslator {
   public static AuthInfo authInfo(JsonNode node) {
     AuthInfo authInfo = new AuthInfo();
     authInfo.setUserId(node.get("id").asText());
-    authInfo.setPassword(node.get("password").asText());
+    authInfo.setPasswordHash(node.get("password_hash").asText());
     authInfo.setLocked(node.get("is_locked").asBoolean());
     return authInfo;
   }

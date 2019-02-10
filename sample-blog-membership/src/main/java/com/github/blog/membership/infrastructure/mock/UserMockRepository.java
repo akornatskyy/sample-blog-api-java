@@ -44,7 +44,7 @@ public final class UserMockRepository implements UserRepository {
     ObjectNode user = USERS.addObject();
     user.put("username", registration.getUsername());
     user.put("email", registration.getEmail());
-    user.put("password", registration.getPassword());
+    user.put("password", registration.getPasswordHash());
     return true;
   }
 }

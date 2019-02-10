@@ -7,6 +7,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.security.spec.InvalidKeySpecException;
+
 public final class SignInFacadeTest {
 
   private ErrorState errorState;
@@ -50,7 +52,8 @@ public final class SignInFacadeTest {
     SignInRequest request = sampleRequest();
     request.setPassword("invalid");
     AuthInfo authInfo = new AuthInfo();
-    authInfo.setPassword("password");
+    authInfo.setPasswordHash(
+        PasswordHashHelper.generateFromPassword("password"));
     Mockito.when(mockUserRepository.findAuthInfo("user"))
         .thenReturn(authInfo);
 
@@ -64,7 +67,8 @@ public final class SignInFacadeTest {
   public void testLocked() {
     SignInRequest request = sampleRequest();
     AuthInfo authInfo = new AuthInfo();
-    authInfo.setPassword(request.getPassword());
+    authInfo.setPasswordHash(
+        PasswordHashHelper.generateFromPassword(request.getPassword()));
     authInfo.setLocked(true);
     Mockito.when(mockUserRepository.findAuthInfo(request.getUsername()))
         .thenReturn(authInfo);
@@ -79,8 +83,8 @@ public final class SignInFacadeTest {
   public void testAuthenticate() {
     SignInRequest request = sampleRequest();
     AuthInfo authInfo = new AuthInfo();
-    authInfo.setPassword(request.getPassword());
-    authInfo.setLocked(false);
+    authInfo.setPasswordHash(
+        PasswordHashHelper.generateFromPassword(request.getPassword()));
     Mockito.when(mockUserRepository.findAuthInfo(request.getUsername()))
         .thenReturn(authInfo);
 

@@ -49,7 +49,10 @@ public final class SignUpFacade {
       return SignUpResponse.ERROR;
     }
 
-    if (!userRepository.createAccount(RegistrationTranslator.from(request))) {
+    Registration registration = RegistrationTranslator.from(request);
+    registration.setPasswordHash(
+        PasswordHashHelper.generateFromPassword(request.getPassword()));
+    if (!userRepository.createAccount(registration)) {
       this.errorState.addError(MESSAGES.getProperty("unableCreateAccount"));
       return SignUpResponse.ERROR;
     }

@@ -10,7 +10,6 @@ final class RegistrationTranslator {
   public static Registration from(SignUpRequest request) {
     Registration registration = new Registration();
     registration.setEmail(request.getEmail());
-    registration.setPassword(request.getPassword());
     registration.setUsername(request.getUsername());
     return registration;
   }

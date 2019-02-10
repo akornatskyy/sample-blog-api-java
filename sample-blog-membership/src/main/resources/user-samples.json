@@ -4,7 +4,7 @@
       "first_name": "Max",
       "id": 1,
       "last_name": "Johnson",
-      "password": "password",
+      "password_hash": "4LqMgSlBM9wj+qSFZ4U85fv3LlyA/4Sb0iv0/PZgJN4=",
       "username": "demo",
       "gravatar_hash": "7dea3df23e3bfa7fdfd264b1aa5fd34e",
       "is_locked": false
@@ -13,7 +13,7 @@
       "first_name": "John",
       "id": 2,
       "last_name": "Smith",
-      "password": "password",
+      "password_hash": "byworVBaBvyYE6jsGkosEcZtevLAkqX+xgPMvfEyQ1E=",
       "username": "js",
       "gravatar_hash": "5b22c1ef381b0e09b04caba808342899",
       "is_locked": true
@@ -22,7 +22,7 @@
       "first_name": "Sophia",
       "id": 3,
       "last_name": "Williams",
-      "password": "password",
+      "password_hash": "jgJ84roeIfqxY7qcn7GQVN3CtyNwldk9ooCc91AzflE=",
       "username": "sw",
       "gravatar_hash": "00706ee319199d25e5b926e156cceda5",
       "is_locked": false
