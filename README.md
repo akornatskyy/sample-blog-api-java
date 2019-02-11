@@ -16,6 +16,8 @@ quality criteria.
 Run application as an executable jar.
 
     java -jar sample-blog-app/target/sample-blog-app-1.0-SNAPSHOT.jar
+    java -Dspring.profiles.active=jdbc \
+      -jar sample-blog-app/target/sample-blog-app-1.0-SNAPSHOT.jar
 
 ## Docker
 

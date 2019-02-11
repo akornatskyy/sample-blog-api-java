@@ -12,6 +12,7 @@
   <properties>
     <aws.lambda.java.core.version>1.2.0</aws.lambda.java.core.version>
     <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
+    <commons.dbutils.version>1.7</commons.dbutils.version>
     <hibernate.validator.version>6.1.0.Alpha3</hibernate.validator.version>
     <java.version>1.8</java.version>
     <javax.el.api.version>3.0.1-b06</javax.el.api.version>
@@ -25,6 +26,7 @@
     <maven.shade.plugin>3.2.1</maven.shade.plugin>
     <maven.surefire.plugin>3.0.0-M3</maven.surefire.plugin>
     <mockito.version>2.25.0</mockito.version>
+    <mysql.connector.java.version>8.0.15</mysql.connector.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.api.version>1.7.26</slf4j.api.version>
     <spring.boot.version>2.1.3.RELEASE</spring.boot.version>
@@ -73,6 +75,16 @@
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
         <version>${ch.qos.logback.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-dbutils</groupId>
+        <artifactId>commons-dbutils</artifactId>
+        <version>${commons.dbutils.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.connector.java.version}</version>
       </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>

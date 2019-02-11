@@ -101,7 +101,12 @@
         },
         "Runtime": "java8",
         "MemorySize": 256,
-        "Timeout": 15
+        "Timeout": 15,
+        "Environment": {
+          "Variables": {
+            "repository.strategy": "mock"
+          }
+        }
       }
     },
     "RestApi": {
