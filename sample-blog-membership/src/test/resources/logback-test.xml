@@ -6,6 +6,7 @@
     </encoder>
   </appender>
 
+  <logger name="MySQL" level="WARN" />
   <logger name="com.github.blog.membership" level="OFF" />
 
   <root level="WARN">
