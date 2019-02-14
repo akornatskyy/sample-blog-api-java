@@ -5,6 +5,7 @@ import com.github.blog.membership.core.Registration;
 import com.github.blog.membership.core.UserRepository;
 import com.mysql.cj.jdbc.MysqlConnectionPoolDataSource;
 import com.mysql.cj.jdbc.MysqlDataSource;
+import org.h2.jdbcx.JdbcDataSource;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,7 +23,8 @@ public final class UserJdbcRepositoryTest {
   private final UserRepository repository;
 
   public UserJdbcRepositoryTest() throws IOException {
-    dataSource = mysql();
+    dataSource = h2();
+    // dataSource = mysql();
     scriptRunner = ScriptRunner.from(dataSource)
         .withRoot(Paths.get("../"))
         .add(Paths.get("schema.sql"))
@@ -60,6 +62,12 @@ public final class UserJdbcRepositoryTest {
 
     Assert.assertTrue(repository.createAccount(r));
     Assert.assertTrue(repository.hasAccount(r.getUsername()));
+  }
+
+  private static DataSource h2() {
+    JdbcDataSource dataSource = new JdbcDataSource();
+    dataSource.setUrl("jdbc:h2:mem:test;MODE=MySQL;DB_CLOSE_DELAY=-1");
+    return dataSource;
   }
 
   private static DataSource mysql() {
