@@ -38,7 +38,7 @@ final class ErrorHandler {
   @ExceptionHandler(HttpMessageNotReadableException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   @ResponseBody
-  public ErrorState handleMethodArgumentNotValidException(
+  public ErrorState handleHttpMessageNotReadableException(
       HttpMessageNotReadableException ex) {
 
     ErrorState errorState = new ErrorState();
