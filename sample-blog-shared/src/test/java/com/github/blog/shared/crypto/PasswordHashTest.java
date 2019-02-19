@@ -35,4 +35,17 @@ public class PasswordHashTest {
 
     Assert.assertEquals(ok, expected);
   }
+
+  @Test
+  public void testGenerateFromPassword() {
+    byte[] hashed = passwordHash.generateFromPassword("password".toCharArray());
+
+    Assert.assertNotNull(hashed);
+    Assert.assertEquals(32, hashed.length);
+  }
+
+  @Test(expectedExceptions = IllegalStateException.class)
+  public void testConstructor() {
+    new PasswordHash("X", 0, 0);
+  }
 }
