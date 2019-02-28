@@ -2,7 +2,7 @@
   "users": [
     {
       "first_name": "Max",
-      "id": 1,
+      "id": "854b5ac3-5e68-4a58-8900-28ea5082f718",
       "last_name": "Johnson",
       "password_hash": "4LqMgSlBM9wj+qSFZ4U85fv3LlyA/4Sb0iv0/PZgJN4=",
       "username": "demo",
@@ -11,7 +11,7 @@
     },
     {
       "first_name": "John",
-      "id": 2,
+      "id": "9b9a59a0-d778-4fef-9e42-ad41985c6583",
       "last_name": "Smith",
       "password_hash": "byworVBaBvyYE6jsGkosEcZtevLAkqX+xgPMvfEyQ1E=",
       "username": "js",
@@ -20,7 +20,7 @@
     },
     {
       "first_name": "Sophia",
-      "id": 3,
+      "id": "161de832-b86b-453b-8c51-5418ee844d07",
       "last_name": "Williams",
       "password_hash": "jgJ84roeIfqxY7qcn7GQVN3CtyNwldk9ooCc91AzflE=",
       "username": "sw",
