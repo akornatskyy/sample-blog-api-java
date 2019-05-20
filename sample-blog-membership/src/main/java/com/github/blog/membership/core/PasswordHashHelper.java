@@ -7,7 +7,7 @@ import java.util.Base64;
 final class PasswordHashHelper {
 
   private static final PasswordHash PASSWORD_HASH = new PasswordHash(
-      "PBKDF2WithHmacSHA1", 65536, 128);
+      "PBKDF2WithHmacSHA1", 65_536, 128);
   private static final Base64.Encoder ENCODER = Base64.getEncoder();
   private static final Base64.Decoder DECODER = Base64.getDecoder();
 
