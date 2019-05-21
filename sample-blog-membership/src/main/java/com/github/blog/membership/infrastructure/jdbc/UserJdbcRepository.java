@@ -3,12 +3,11 @@ package com.github.blog.membership.infrastructure.jdbc;
 import com.github.blog.membership.core.AuthInfo;
 import com.github.blog.membership.core.Registration;
 import com.github.blog.membership.core.UserRepository;
+import java.sql.SQLException;
+import javax.sql.DataSource;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-
-import java.sql.SQLException;
-import javax.sql.DataSource;
 
 public final class UserJdbcRepository implements UserRepository {
 

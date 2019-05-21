@@ -12,10 +12,9 @@ import com.github.blog.membership.core.SignUpFacade;
 import com.github.blog.membership.core.SignUpRequest;
 import com.github.blog.membership.core.SignUpResponse;
 import com.github.blog.shared.service.ErrorState;
+import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
 
 public final class ApiRequestHandler
     implements RequestHandler<HttpRequest, HttpResponse> {
@@ -47,8 +46,8 @@ public final class ApiRequestHandler
 
     try {
       return route(request);
-    } catch (
-        @SuppressWarnings("PMD.AvoidCatchingGenericException") Exception ex) {
+    } catch (@SuppressWarnings("PMD.AvoidCatchingGenericException")
+        Exception ex) {
       LOGGER.error("unhandled error", ex);
       return HttpResponse.INTERNAL_SERVER_ERROR;
     }

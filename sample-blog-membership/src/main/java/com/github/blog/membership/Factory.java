@@ -9,10 +9,9 @@ import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
 import com.mysql.cj.jdbc.MysqlConnectionPoolDataSource;
 import com.mysql.cj.jdbc.MysqlDataSource;
+import java.util.function.Function;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.function.Function;
 
 public final class Factory {
 

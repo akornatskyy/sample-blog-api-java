@@ -3,10 +3,9 @@ package com.github.blog.membership.core;
 import com.github.blog.shared.PropertiesLoader;
 import com.github.blog.shared.service.ErrorState;
 import com.github.blog.shared.service.ValidationService;
+import java.util.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Properties;
 
 /**
  * Sign up use case.
