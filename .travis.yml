@@ -1,6 +1,7 @@
 language: java
 jdk:
-  - oraclejdk8
+  - oraclejdk12
   - openjdk8
+  - openjdk12
 sudo: false
-script: mvn -T4 -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn clean verify
+script: mvn -T1C clean verify
