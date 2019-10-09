@@ -13,12 +13,12 @@
     <aws.lambda.java.core.version>1.2.0</aws.lambda.java.core.version>
     <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
     <commons.dbutils.version>1.7</commons.dbutils.version>
-    <h2.version>1.4.199</h2.version>
+    <h2.version>1.4.200</h2.version>
     <hibernate.validator.version>6.1.0.Alpha6</hibernate.validator.version>
     <jansi.version>1.18</jansi.version>
     <java.version>1.8</java.version>
     <javax.el.api.version>3.0.1-b06</javax.el.api.version>
-    <javax.el.version>2.2.6</javax.el.version>
+    <javax.el.version>3.0.1-b11</javax.el.version>
     <maven.checkstyle.plugin>3.1.0</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
     <maven.enforcer.plugin>3.0.0-M2</maven.enforcer.plugin>
@@ -27,11 +27,11 @@
     <maven.restrict.imports.plugin>1.0.1</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.2.1</maven.shade.plugin>
     <maven.surefire.plugin>3.0.0-M3</maven.surefire.plugin>
-    <mockito.version>3.0.0</mockito.version>
-    <mysql.connector.java.version>8.0.17</mysql.connector.java.version>
+    <mockito.version>3.1.0</mockito.version>
+    <mysql.connector.java.version>8.0.18</mysql.connector.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.api.version>1.7.28</slf4j.api.version>
-    <spring.boot.version>2.1.8.RELEASE</spring.boot.version>
+    <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
     <testng.version>7.0.0</testng.version>
     <validation.api.version>2.0.1.Final</validation.api.version>
   </properties>
@@ -59,7 +59,7 @@
         <version>${javax.el.api.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.glassfish.web</groupId>
+        <groupId>org.glassfish</groupId>
         <artifactId>javax.el</artifactId>
         <version>${javax.el.version}</version>
       </dependency>
