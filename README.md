@@ -9,7 +9,7 @@ A simple blog API written using Java.
 Run any checks to verify the package is valid and meets
 quality criteria.
 
-    mvn -T4 clean verify
+    mvn -T1C clean verify
 
 ## Run
 
