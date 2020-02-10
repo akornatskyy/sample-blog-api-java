@@ -2,7 +2,6 @@ package com.github.blog.aws.lambda;
 
 import com.github.blog.membership.Factory;
 import com.github.blog.shared.PropertiesLoader;
-
 import java.util.Map;
 
 class FactoryProvider {

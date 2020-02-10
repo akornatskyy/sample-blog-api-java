@@ -1,7 +1,6 @@
 package com.github.blog.membership.core;
 
 import com.github.blog.shared.crypto.PasswordHash;
-
 import java.util.Base64;
 
 final class PasswordHashHelper {

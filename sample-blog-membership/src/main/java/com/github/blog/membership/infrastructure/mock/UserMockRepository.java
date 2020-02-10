@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.github.blog.membership.core.AuthInfo;
 import com.github.blog.membership.core.Registration;
 import com.github.blog.membership.core.UserRepository;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.stream.StreamSupport;
