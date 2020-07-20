@@ -27,7 +27,7 @@
     <maven.restrict.imports.plugin>1.1.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.2.4</maven.shade.plugin>
     <maven.surefire.plugin>3.0.0-M5</maven.surefire.plugin>
-    <mockito.version>3.3.3</mockito.version>
+    <mockito.version>3.4.4</mockito.version>
     <mysql.connector.java.version>8.0.20</mysql.connector.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.api.version>1.7.30</slf4j.api.version>
