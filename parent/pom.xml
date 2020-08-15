@@ -23,16 +23,16 @@
     <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
     <maven.enforcer.plugin>3.0.0-M3</maven.enforcer.plugin>
     <maven.pmd.plugin>3.13.0</maven.pmd.plugin>
-    <maven.resources.plugin>3.1.0</maven.resources.plugin>
+    <maven.resources.plugin>3.2.0</maven.resources.plugin>
     <maven.restrict.imports.plugin>1.1.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.2.4</maven.shade.plugin>
     <maven.surefire.plugin>3.0.0-M5</maven.surefire.plugin>
-    <mockito.version>3.3.3</mockito.version>
-    <mysql.connector.java.version>8.0.20</mysql.connector.java.version>
+    <mockito.version>3.5.2</mockito.version>
+    <mysql.connector.java.version>8.0.21</mysql.connector.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.api.version>1.7.30</slf4j.api.version>
-    <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
-    <testng.version>7.1.0</testng.version>
+    <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
+    <testng.version>7.3.0</testng.version>
     <validation.api.version>2.0.1.Final</validation.api.version>
   </properties>
 
