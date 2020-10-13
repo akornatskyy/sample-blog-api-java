@@ -18,7 +18,7 @@
     <jansi.version>1.18</jansi.version>
     <java.version>1.8</java.version>
     <javax.el.api.version>3.0.1-b06</javax.el.api.version>
-    <javax.el.version>3.0.1-b11</javax.el.version>
+    <javax.el.version>3.0.1-b12</javax.el.version>
     <maven.checkstyle.plugin>3.1.1</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
     <maven.enforcer.plugin>3.0.0-M3</maven.enforcer.plugin>
