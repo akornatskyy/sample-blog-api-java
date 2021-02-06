@@ -15,7 +15,7 @@
     <checkstyle.version>8.40</checkstyle.version>
     <commons.dbutils.version>1.7</commons.dbutils.version>
     <h2.version>1.4.200</h2.version>
-    <hibernate.validator.version>6.1.6.Final</hibernate.validator.version>
+    <hibernate.validator.version>7.0.0.Final</hibernate.validator.version>
     <jansi.version>2.2.0</jansi.version>
     <java.version>1.8</java.version>
     <javax.el.api.version>3.0.1-b06</javax.el.api.version>
