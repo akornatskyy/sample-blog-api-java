@@ -12,7 +12,7 @@
   <properties>
     <aws.lambda.java.core.version>1.2.1</aws.lambda.java.core.version>
     <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
-    <checkstyle.version>8.41</checkstyle.version>
+    <checkstyle.version>8.41.1</checkstyle.version>
     <commons.dbutils.version>1.7</commons.dbutils.version>
     <h2.version>1.4.200</h2.version>
     <hibernate.validator.version>6.1.6.Final</hibernate.validator.version>
