@@ -29,7 +29,7 @@
     <maven.shade.plugin>3.2.4</maven.shade.plugin>
     <maven.surefire.plugin>3.0.0-M5</maven.surefire.plugin>
     <mockito.version>3.8.0</mockito.version>
-    <mysql.connector.java.version>8.0.23</mysql.connector.java.version>
+    <mysql.connector.java.version>8.0.24</mysql.connector.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.api.version>1.7.30</slf4j.api.version>
     <spring.boot.version>2.4.4</spring.boot.version>
