@@ -32,7 +32,7 @@
     <mysql.connector.java.version>8.0.25</mysql.connector.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.api.version>1.7.30</slf4j.api.version>
-    <spring.boot.version>2.4.5</spring.boot.version>
+    <spring.boot.version>2.5.2</spring.boot.version>
     <testng.version>7.3.0</testng.version>
     <validation.api.version>2.0.1.Final</validation.api.version>
   </properties>
