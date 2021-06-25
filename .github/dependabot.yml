@@ -1,0 +1,48 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "03:00"
+  open-pull-requests-limit: 15
+  ignore:
+  - dependency-name: mysql:mysql-connector-java
+    versions:
+    - 8.0.23
+    - 8.0.24
+  - dependency-name: org.springframework.boot:spring-boot-maven-plugin
+    versions:
+    - 2.4.2
+    - 2.4.3
+    - 2.4.4
+    - 2.4.5
+  - dependency-name: org.springframework.boot:spring-boot-dependencies
+    versions:
+    - 2.4.2
+    - 2.4.3
+    - 2.4.4
+    - 2.4.5
+  - dependency-name: org.mockito:mockito-core
+    versions:
+    - 3.7.7
+    - 3.8.0
+    - 3.9.0
+  - dependency-name: com.puppycrawl.tools:checkstyle
+    versions:
+    - "8.41"
+    - 8.41.1
+  - dependency-name: org.fusesource.jansi:jansi
+    versions:
+    - 2.2.0
+    - 2.3.1
+    - 2.3.2
+  - dependency-name: org.hibernate.validator:hibernate-validator-annotation-processor
+    versions:
+    - 7.0.0.Final
+  - dependency-name: org.hibernate.validator:hibernate-validator
+    versions:
+    - 7.0.0.Final
+  - dependency-name: org.apache.maven.plugins:maven-checkstyle-plugin
+    versions:
+    - 3.1.2
