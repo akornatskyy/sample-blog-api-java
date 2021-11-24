@@ -21,4 +21,5 @@ jobs:
         with:
           java-version: ${{ matrix.jdk }}
           distribution: 'adopt'
-      - run: mvn -T1C clean verify
+          cache: maven
+      - run: mvn -T1C --batch-mode verify
