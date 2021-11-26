@@ -1,8 +1,0 @@
-language: java
-jdk:
-  - oraclejdk11
-  - openjdk8
-  - openjdk11
-  - openjdk16
-sudo: false
-script: mvn -T1C clean verify
