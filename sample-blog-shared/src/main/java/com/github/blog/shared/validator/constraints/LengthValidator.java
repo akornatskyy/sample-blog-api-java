@@ -3,7 +3,7 @@ package com.github.blog.shared.validator.constraints;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-@SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.NPathComplexity"})
+@SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.NPathComplexity", "PMD.CognitiveComplexity"})
 public final class LengthValidator
     implements ConstraintValidator<Length, CharSequence> {
 

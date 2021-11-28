@@ -84,7 +84,7 @@ public final class ApiRequestHandler
     SignInResponse response = facade.authenticate(
         OBJECT_MAPPER.readValue(body, SignInRequest.class));
 
-    if (response == SignInResponse.ERROR) {
+    if (response.equals(SignInResponse.ERROR)) {
       return httpBadRequest(errorState);
     }
 
@@ -104,7 +104,7 @@ public final class ApiRequestHandler
     SignUpResponse response = facade.createAccount(
         OBJECT_MAPPER.readValue(request.getBody(), SignUpRequest.class));
 
-    if (response == SignUpResponse.ERROR) {
+    if (response.equals(SignUpResponse.ERROR)) {
       return httpBadRequest(errorState);
     }
 

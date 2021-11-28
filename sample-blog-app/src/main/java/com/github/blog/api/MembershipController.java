@@ -34,8 +34,7 @@ final class MembershipController {
     SignInFacade facade = factory.createSignInFacade(errorState);
 
     SignInResponse response = facade.authenticate(request);
-
-    if (response == SignInResponse.ERROR) {
+    if (response.equals(SignInResponse.ERROR)) {
       return new ResponseEntity<>(errorState, HttpStatus.BAD_REQUEST);
     }
 
@@ -52,8 +51,7 @@ final class MembershipController {
     SignUpFacade facade = factory.createSignUpFacade(errorState);
 
     SignUpResponse response = facade.createAccount(request);
-
-    if (response == SignUpResponse.ERROR) {
+    if (response.equals(SignUpResponse.ERROR)) {
       return new ResponseEntity<>(errorState, HttpStatus.BAD_REQUEST);
     }
 
