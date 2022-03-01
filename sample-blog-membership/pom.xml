@@ -77,15 +77,14 @@
         <artifactId>maven-enforcer-plugin</artifactId>
         <executions>
           <execution>
-            <id>check-logging-imports</id>
+            <id>enforce-banned-dependencies</id>
             <phase>process-sources</phase>
             <goals>
               <goal>enforce</goal>
             </goals>
             <configuration>
               <rules>
-                <restrictImports
-                    implementation="de.skuzzle.enforcer.restrictimports.rule.RestrictImports">
+                <restrictImports>
                   <basePackage>
                     com.github.blog.membership.core.**
                   </basePackage>

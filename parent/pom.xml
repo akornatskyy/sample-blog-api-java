@@ -25,7 +25,7 @@
     <maven.enforcer.plugin>3.0.0</maven.enforcer.plugin>
     <maven.pmd.plugin>3.16.0</maven.pmd.plugin>
     <maven.resources.plugin>3.2.0</maven.resources.plugin>
-    <maven.restrict.imports.plugin>1.4.0</maven.restrict.imports.plugin>
+    <maven.restrict.imports.plugin>2.0.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.2.4</maven.shade.plugin>
     <maven.surefire.plugin>3.0.0-M5</maven.surefire.plugin>
     <mockito.version>4.3.1</mockito.version>
