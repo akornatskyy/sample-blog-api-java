@@ -15,11 +15,11 @@
     <checkstyle.version>9.3</checkstyle.version>
     <commons.dbutils.version>1.7</commons.dbutils.version>
     <h2.version>2.1.210</h2.version>
-    <hibernate.validator.version>6.1.6.Final</hibernate.validator.version>
+    <hibernate.validator.version>7.0.4.Final</hibernate.validator.version>
     <jansi.version>2.4.0</jansi.version>
     <java.version>1.8</java.version>
-    <javax.el.api.version>3.0.1-b06</javax.el.api.version>
-    <javax.el.version>3.0.1-b12</javax.el.version>
+    <jakarta.el.api.version>4.0.0</jakarta.el.api.version>
+    <glassfish.el.version>4.0.2</glassfish.el.version>
     <maven.checkstyle.plugin>3.1.2</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.10.0</maven.compiler.plugin>
     <maven.enforcer.plugin>3.0.0</maven.enforcer.plugin>
@@ -34,14 +34,14 @@
     <slf4j.api.version>1.7.36</slf4j.api.version>
     <spring.boot.version>2.6.4</spring.boot.version>
     <testng.version>7.3.0</testng.version>
-    <validation.api.version>2.0.1.Final</validation.api.version>
+    <validation.api.version>3.0.1</validation.api.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>javax.validation</groupId>
-        <artifactId>validation-api</artifactId>
+        <groupId>jakarta.validation</groupId>
+        <artifactId>jakarta.validation-api</artifactId>
         <version>${validation.api.version}</version>
       </dependency>
       <dependency>
@@ -55,14 +55,14 @@
         <version>${hibernate.validator.version}</version>
       </dependency>
       <dependency>
-        <groupId>javax.el</groupId>
-        <artifactId>javax.el-api</artifactId>
-        <version>${javax.el.api.version}</version>
+        <groupId>jakarta.el</groupId>
+        <artifactId>jakarta.el-api</artifactId>
+        <version>${jakarta.el.api.version}</version>
       </dependency>
       <dependency>
         <groupId>org.glassfish</groupId>
-        <artifactId>javax.el</artifactId>
-        <version>${javax.el.version}</version>
+        <artifactId>jakarta.el</artifactId>
+        <version>${glassfish.el.version}</version>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
@@ -273,7 +273,7 @@
             <goals>
               <goal>enforce</goal>
             </goals>
-            <configuration>
+            <configuration>v
               <rules>
                 <bannedDependencies>
                   <searchTransitive>

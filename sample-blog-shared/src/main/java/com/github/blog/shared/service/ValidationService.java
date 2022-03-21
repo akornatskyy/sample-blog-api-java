@@ -1,7 +1,7 @@
 package com.github.blog.shared.service;
 
-import javax.validation.Validation;
-import javax.validation.ValidatorFactory;
+import jakarta.validation.Validation;
+import jakarta.validation.ValidatorFactory;
 
 public final class ValidationService {
   private static final ValidatorFactory VALIDATOR_FACTORY =

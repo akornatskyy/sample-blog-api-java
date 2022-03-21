@@ -1,5 +1,6 @@
 package com.github.blog.shared.validator.constraints;
 
+import jakarta.validation.ConstraintValidatorContext;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.testng.Assert;
@@ -9,7 +10,6 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-import javax.validation.ConstraintValidatorContext;
 
 public class LengthValidatorTest {
 
