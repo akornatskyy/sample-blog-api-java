@@ -26,7 +26,7 @@
     <maven.pmd.plugin>3.16.0</maven.pmd.plugin>
     <maven.resources.plugin>3.2.0</maven.resources.plugin>
     <maven.restrict.imports.plugin>2.0.0</maven.restrict.imports.plugin>
-    <maven.shade.plugin>3.2.4</maven.shade.plugin>
+    <maven.shade.plugin>3.3.0</maven.shade.plugin>
     <maven.surefire.plugin>3.0.0-M5</maven.surefire.plugin>
     <mockito.version>4.4.0</mockito.version>
     <mysql.connector.java.version>8.0.28</mysql.connector.java.version>
