@@ -35,7 +35,7 @@
     <slf4j.api.version>1.7.36</slf4j.api.version>
     <spring.boot.version>2.6.6</spring.boot.version>
     <testng.version>7.3.0</testng.version>
-    <validation.api.version>3.0.1</validation.api.version>
+    <validation.api.version>3.0.2</validation.api.version>
   </properties>
 
   <dependencyManagement>
