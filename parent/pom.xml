@@ -17,7 +17,7 @@
     <checkstyle.version>9.3</checkstyle.version>
     <commons.dbutils.version>1.7</commons.dbutils.version>
     <glassfish.el.version>4.0.2</glassfish.el.version>
-    <h2.version>2.1.210</h2.version>
+    <h2.version>2.1.214</h2.version>
     <hibernate.validator.version>7.0.4.Final</hibernate.validator.version>
     <jakarta.el.api.version>4.0.0</jakarta.el.api.version>
     <jansi.version>2.4.0</jansi.version>
