@@ -17,25 +17,25 @@
     <checkstyle.version>9.3</checkstyle.version>
     <commons.dbutils.version>1.7</commons.dbutils.version>
     <glassfish.el.version>4.0.2</glassfish.el.version>
-    <h2.version>2.1.210</h2.version>
-    <hibernate.validator.version>7.0.4.Final</hibernate.validator.version>
+    <h2.version>2.1.214</h2.version>
+    <hibernate.validator.version>7.0.5.Final</hibernate.validator.version>
     <jakarta.el.api.version>4.0.0</jakarta.el.api.version>
     <jansi.version>2.4.0</jansi.version>
     <java.version>1.8</java.version>
     <maven.checkstyle.plugin>3.1.2</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.10.1</maven.compiler.plugin>
-    <maven.enforcer.plugin>3.0.0</maven.enforcer.plugin>
-    <maven.pmd.plugin>3.16.0</maven.pmd.plugin>
-    <maven.resources.plugin>3.2.0</maven.resources.plugin>
+    <maven.enforcer.plugin>3.1.0</maven.enforcer.plugin>
+    <maven.pmd.plugin>3.17.0</maven.pmd.plugin>
+    <maven.resources.plugin>3.3.0</maven.resources.plugin>
     <maven.restrict.imports.plugin>2.0.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.3.0</maven.shade.plugin>
-    <maven.surefire.plugin>3.0.0-M5</maven.surefire.plugin>
+    <maven.surefire.plugin>3.0.0-M7</maven.surefire.plugin>
     <mockito.version>4.4.0</mockito.version>
-    <mysql.connector.java.version>8.0.28</mysql.connector.java.version>
+    <mysql.connector.java.version>8.0.30</mysql.connector.java.version>
     <slf4j.api.version>1.7.36</slf4j.api.version>
-    <spring.boot.version>2.6.6</spring.boot.version>
+    <spring.boot.version>2.7.2</spring.boot.version>
     <testng.version>7.3.0</testng.version>
-    <validation.api.version>3.0.1</validation.api.version>
+    <validation.api.version>3.0.2</validation.api.version>
   </properties>
 
   <dependencyManagement>
@@ -274,7 +274,7 @@
             <goals>
               <goal>enforce</goal>
             </goals>
-            <configuration>v
+            <configuration>
               <rules>
                 <bannedDependencies>
                   <searchTransitive>
