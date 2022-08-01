@@ -14,7 +14,7 @@
 
     <aws.lambda.java.core.version>1.2.1</aws.lambda.java.core.version>
     <ch.qos.logback.version>1.2.11</ch.qos.logback.version>
-    <checkstyle.version>9.3</checkstyle.version>
+    <checkstyle.version>10.3.2</checkstyle.version>
     <commons.dbutils.version>1.7</commons.dbutils.version>
     <glassfish.el.version>4.0.2</glassfish.el.version>
     <h2.version>2.1.210</h2.version>
