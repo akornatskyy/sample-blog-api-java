@@ -33,7 +33,7 @@
     <mockito.version>4.9.0</mockito.version>
     <mysql.connector.java.version>8.0.30</mysql.connector.java.version>
     <slf4j.api.version>2.0.6</slf4j.api.version>
-    <spring.boot.version>2.7.3</spring.boot.version>
+    <spring.boot.version>3.0.2</spring.boot.version>
     <testng.version>7.3.0</testng.version>
     <validation.api.version>3.0.2</validation.api.version>
   </properties>
