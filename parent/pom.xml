@@ -30,7 +30,7 @@
     <maven.restrict.imports.plugin>2.1.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.4.1</maven.shade.plugin>
     <maven.surefire.plugin>3.0.0-M8</maven.surefire.plugin>
-    <mockito.version>4.9.0</mockito.version>
+    <mockito.version>5.1.1</mockito.version>
     <mysql.connector.java.version>8.0.30</mysql.connector.java.version>
     <slf4j.api.version>2.0.6</slf4j.api.version>
     <spring.boot.version>2.7.3</spring.boot.version>
