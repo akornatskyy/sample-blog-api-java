@@ -23,7 +23,7 @@
     <jansi.version>2.4.0</jansi.version>
     <java.version>1.8</java.version>
     <maven.checkstyle.plugin>3.2.1</maven.checkstyle.plugin>
-    <maven.compiler.plugin>3.10.1</maven.compiler.plugin>
+    <maven.compiler.plugin>3.11.0</maven.compiler.plugin>
     <maven.enforcer.plugin>3.2.1</maven.enforcer.plugin>
     <maven.pmd.plugin>3.20.0</maven.pmd.plugin>
     <maven.resources.plugin>3.3.0</maven.resources.plugin>
