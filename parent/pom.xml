@@ -11,31 +11,32 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>17</java.version>
 
     <aws.lambda.java.core.version>1.2.2</aws.lambda.java.core.version>
-    <ch.qos.logback.version>1.2.11</ch.qos.logback.version>
-    <checkstyle.version>9.3</checkstyle.version>
     <commons.dbutils.version>1.7</commons.dbutils.version>
     <glassfish.el.version>4.0.2</glassfish.el.version>
     <h2.version>2.1.214</h2.version>
     <hibernate.validator.version>7.0.5.Final</hibernate.validator.version>
     <jakarta.el.api.version>4.0.0</jakarta.el.api.version>
     <jansi.version>2.4.0</jansi.version>
-    <java.version>1.8</java.version>
+    <mysql.connector.java.version>8.0.30</mysql.connector.java.version>
+    <slf4j.api.version>2.0.7</slf4j.api.version>
+    <spring.boot.version>3.0.5</spring.boot.version>
+    <validation.api.version>3.0.2</validation.api.version>
+
+    <mockito.version>4.9.0</mockito.version>
+    <testng.version>7.7.1</testng.version>
+
+    <checkstyle.version>10.9.3</checkstyle.version>
     <maven.checkstyle.plugin>3.2.1</maven.checkstyle.plugin>
-    <maven.compiler.plugin>3.10.1</maven.compiler.plugin>
+    <maven.compiler.plugin>3.11.0</maven.compiler.plugin>
     <maven.enforcer.plugin>3.2.1</maven.enforcer.plugin>
     <maven.pmd.plugin>3.20.0</maven.pmd.plugin>
-    <maven.resources.plugin>3.3.0</maven.resources.plugin>
+    <maven.resources.plugin>3.3.1</maven.resources.plugin>
     <maven.restrict.imports.plugin>2.1.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.4.1</maven.shade.plugin>
-    <maven.surefire.plugin>3.0.0-M8</maven.surefire.plugin>
-    <mockito.version>4.9.0</mockito.version>
-    <mysql.connector.java.version>8.0.30</mysql.connector.java.version>
-    <slf4j.api.version>2.0.6</slf4j.api.version>
-    <spring.boot.version>2.7.3</spring.boot.version>
-    <testng.version>7.3.0</testng.version>
-    <validation.api.version>3.0.2</validation.api.version>
+    <maven.surefire.plugin>3.0.0</maven.surefire.plugin>
   </properties>
 
   <dependencyManagement>
@@ -71,16 +72,6 @@
         <version>${slf4j.api.version}</version>
       </dependency>
       <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-core</artifactId>
-        <version>${ch.qos.logback.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>${ch.qos.logback.version}</version>
-      </dependency>
-      <dependency>
         <groupId>commons-dbutils</groupId>
         <artifactId>commons-dbutils</artifactId>
         <version>${commons.dbutils.version}</version>
@@ -103,6 +94,11 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
         <groupId>org.fusesource.jansi</groupId>
         <artifactId>jansi</artifactId>
         <version>${jansi.version}</version>
@@ -112,6 +108,7 @@
         <artifactId>aws-lambda-java-core</artifactId>
         <version>${aws.lambda.java.core.version}</version>
       </dependency>
+
       <!-- Test scope dependencies start here. -->
       <dependency>
         <groupId>org.testng</groupId>
