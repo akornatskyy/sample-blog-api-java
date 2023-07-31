@@ -28,7 +28,7 @@
     <mockito.version>5.3.1</mockito.version>
     <testng.version>7.8.0</testng.version>
 
-    <checkstyle.version>10.11.0</checkstyle.version>
+    <checkstyle.version>10.12.2</checkstyle.version>
     <maven.checkstyle.plugin>3.3.0</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.11.0</maven.compiler.plugin>
     <maven.enforcer.plugin>3.3.0</maven.enforcer.plugin>
