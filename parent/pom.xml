@@ -18,7 +18,7 @@
     <glassfish.el.version>5.0.0-M1</glassfish.el.version>
     <h2.version>2.2.224</h2.version>
     <hibernate.validator.version>8.0.1.Final</hibernate.validator.version>
-    <jakarta.el.api.version>6.0.0-RC1</jakarta.el.api.version>
+    <jakarta.el.api.version>6.0.0</jakarta.el.api.version>
     <jansi.version>2.4.1</jansi.version>
     <mysql.connector.java.version>8.0.33</mysql.connector.java.version>
     <slf4j.api.version>2.1.0-alpha1</slf4j.api.version>
