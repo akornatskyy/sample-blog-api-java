@@ -22,7 +22,7 @@
     <jansi.version>2.4.1</jansi.version>
     <mysql.connector.java.version>8.0.33</mysql.connector.java.version>
     <slf4j.api.version>2.1.0-alpha1</slf4j.api.version>
-    <spring.boot.version>3.2.4</spring.boot.version>
+    <spring.boot.version>3.2.5</spring.boot.version>
     <validation.api.version>3.1.0-M2</validation.api.version>
 
     <mockito.version>5.11.0</mockito.version>
