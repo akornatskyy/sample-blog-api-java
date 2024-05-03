@@ -23,6 +23,7 @@ final class Router {
     }
   }
 
+  @SuppressWarnings("PMD.AvoidLiteralsInIfCondition")
   private static String matchHttpGet(String path) {
     if ("/welcome".equals(path)) {
       return RouteNames.WELCOME;

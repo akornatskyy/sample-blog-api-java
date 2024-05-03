@@ -39,6 +39,7 @@ public final class ApiRequestHandler
   }
 
   @Override
+  @SuppressWarnings("PMD.AvoidCatchingGenericException")
   public HttpResponse handleRequest(HttpRequest request, Context context) {
     if (LOGGER.isInfoEnabled()) {
       LOGGER.info("handling request");
@@ -46,8 +47,7 @@ public final class ApiRequestHandler
 
     try {
       return route(request);
-    } catch (@SuppressWarnings("PMD.AvoidCatchingGenericException")
-        Exception ex) {
+    } catch (Exception ex) {
       LOGGER.error("unhandled error", ex);
       return HttpResponse.INTERNAL_SERVER_ERROR;
     }
