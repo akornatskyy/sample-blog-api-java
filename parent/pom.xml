@@ -22,20 +22,20 @@
     <jansi.version>2.4.1</jansi.version>
     <mysql.connector.java.version>8.0.33</mysql.connector.java.version>
     <slf4j.api.version>2.1.0-alpha1</slf4j.api.version>
-    <spring.boot.version>3.2.5</spring.boot.version>
-    <validation.api.version>3.1.0-M2</validation.api.version>
+    <spring.boot.version>3.3.0</spring.boot.version>
+    <validation.api.version>3.1.0</validation.api.version>
 
     <mockito.version>5.12.0</mockito.version>
     <testng.version>7.10.2</testng.version>
 
-    <checkstyle.version>10.16.0</checkstyle.version>
+    <checkstyle.version>10.17.0</checkstyle.version>
     <maven.checkstyle.plugin>3.3.1</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.13.0</maven.compiler.plugin>
-    <maven.enforcer.plugin>3.4.1</maven.enforcer.plugin>
+    <maven.enforcer.plugin>3.5.0</maven.enforcer.plugin>
     <maven.pmd.plugin>3.22.0</maven.pmd.plugin>
     <maven.resources.plugin>3.3.1</maven.resources.plugin>
     <maven.restrict.imports.plugin>2.5.0</maven.restrict.imports.plugin>
-    <maven.shade.plugin>3.5.3</maven.shade.plugin>
+    <maven.shade.plugin>3.6.0</maven.shade.plugin>
     <maven.surefire.plugin>3.2.5</maven.surefire.plugin>
   </properties>
 
