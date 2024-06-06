@@ -29,7 +29,7 @@
     <testng.version>7.10.2</testng.version>
 
     <checkstyle.version>10.17.0</checkstyle.version>
-    <maven.checkstyle.plugin>3.3.1</maven.checkstyle.plugin>
+    <maven.checkstyle.plugin>3.4.0</maven.checkstyle.plugin>
     <maven.compiler.plugin>3.13.0</maven.compiler.plugin>
     <maven.enforcer.plugin>3.5.0</maven.enforcer.plugin>
     <maven.pmd.plugin>3.22.0</maven.pmd.plugin>
