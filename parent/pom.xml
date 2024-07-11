@@ -36,7 +36,7 @@
     <maven.resources.plugin>3.3.1</maven.resources.plugin>
     <maven.restrict.imports.plugin>2.5.0</maven.restrict.imports.plugin>
     <maven.shade.plugin>3.6.0</maven.shade.plugin>
-    <maven.surefire.plugin>3.2.5</maven.surefire.plugin>
+    <maven.surefire.plugin>3.3.1</maven.surefire.plugin>
   </properties>
 
   <dependencyManagement>
